@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="笔记," />
+  <meta name="keywords" content="前端," />
 
 
 
@@ -53,19 +53,34 @@
 
 
 
-<meta name="description" content="Mobile Web   head内的meta，写下备用&amp;lt;!--user-scalable=no是需要的，发现在某些设备上仅有initial和maximum仍然无法阻止缩放 --&amp;gt;
-&amp;lt;meta content=&quot;initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width&quot; name=&quot;viewport&quot;/">
+<meta name="description" content="安装SASS
+由于SASS是基于RUBY开发的，所幸MAC已经预装了RUBY,所以直接在终端输入
+sudo gem install sass -V
+PS: -V 可以查看安装的进程
+
+安装Compass
+Compass是一个样式框架，里面包括了大量定义好的mixin，函数，以及对SASS的扩展，并且貌似还提供了好多插件，想生成开发版、发布版。HOHO，from 百度百科,据说学会了Compass，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跨终端WEB">
-<meta property="og:url" content="http://yoursite.com/2015/06/10/跨终端WEB/index.html">
+<meta property="og:title" content="初遇 SASS">
+<meta property="og:url" content="http://yoursite.com/2015/11/03/sass之安装/index.html">
 <meta property="og:site_name" content="ImpGuier">
-<meta property="og:description" content="Mobile Web   head内的meta，写下备用&amp;lt;!--user-scalable=no是需要的，发现在某些设备上仅有initial和maximum仍然无法阻止缩放 --&amp;gt;
-&amp;lt;meta content=&quot;initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width&quot; name=&quot;viewport&quot;/">
-<meta property="og:updated_time" content="2015-06-10T08:49:19.000Z">
+<meta property="og:description" content="安装SASS
+由于SASS是基于RUBY开发的，所幸MAC已经预装了RUBY,所以直接在终端输入
+sudo gem install sass -V
+PS: -V 可以查看安装的进程
+
+安装Compass
+Compass是一个样式框架，里面包括了大量定义好的mixin，函数，以及对SASS的扩展，并且貌似还提供了好多插件，想生成开发版、发布版。HOHO，from 百度百科,据说学会了Compass，">
+<meta property="og:updated_time" content="2015-11-03T07:13:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跨终端WEB">
-<meta name="twitter:description" content="Mobile Web   head内的meta，写下备用&amp;lt;!--user-scalable=no是需要的，发现在某些设备上仅有initial和maximum仍然无法阻止缩放 --&amp;gt;
-&amp;lt;meta content=&quot;initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width&quot; name=&quot;viewport&quot;/">
+<meta name="twitter:title" content="初遇 SASS">
+<meta name="twitter:description" content="安装SASS
+由于SASS是基于RUBY开发的，所幸MAC已经预装了RUBY,所以直接在终端输入
+sudo gem install sass -V
+PS: -V 可以查看安装的进程
+
+安装Compass
+Compass是一个样式框架，里面包括了大量定义好的mixin，函数，以及对SASS的扩展，并且貌似还提供了好多插件，想生成开发版、发布版。HOHO，from 百度百科,据说学会了Compass，">
 
 
 
@@ -77,7 +92,7 @@
   };
 </script>
 
-  <title> 跨终端WEB | ImpGuier </title>
+  <title> 初遇 SASS | ImpGuier </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -197,7 +212,7 @@
             
             
               
-                跨终端WEB
+                初遇 SASS
               
             
           </h1>
@@ -206,34 +221,19 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-06-10T15:52:43+08:00" content="2015-06-10">
-              2015-06-10
+            <time itemprop="dateCreated" datetime="2015-11-03T13:36:54+08:00" content="2015-11-03">
+              2015-11-03
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/06/10/跨终端WEB/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/跨终端WEB/" itemprop="commentsCount"></span>
+                <a href="/2015/11/03/sass之安装/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/03/sass之安装/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -252,21 +252,24 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="Mobile_Web">Mobile Web</h1><h2 id="head内的meta，写下备用">   head内的meta，写下备用</h2><pre><code><span class="comment">&lt;!--user-scalable=no是需要的，发现在某些设备上仅有initial和maximum仍然无法阻止缩放 --&gt;</span>
-<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">content</span>=<span class="value">"initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width"</span> <span class="attribute">name</span>=<span class="value">"viewport"</span>/&gt;</span>
-
-<span class="comment">&lt;!-- touch-icon在IOS中用于桌面图标 --&gt;</span>
-<span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">"https://github.com/fluidicon.png"</span> <span class="attribute">rel</span>=<span class="value">"apple-touch-icon-precomposed"</span>&gt;</span>
-
-<span class="comment">&lt;!-- 从桌面icon 启动 iOS Safari 是否进入全屏状态（App模式）yes|no --&gt;</span>
-<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">content</span>=<span class="value">"yes"</span> <span class="attribute">name</span>=<span class="value">"apple-mobile-web-app-capable"</span>/&gt;</span>
-
-<span class="tag">&lt;<span class="title">--</span> <span class="attribute">iOS</span> <span class="attribute">Safari</span> 全屏状态下的状态栏样式 <span class="attribute">default</span>  |  <span class="attribute">black</span>  |  <span class="attribute">black-translucent</span> <span class="attribute">--</span>&gt;</span>
-<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">content</span>=<span class="value">"black-translucent"</span> <span class="attribute">name</span>=<span class="value">"apple-mobile-web-app-status-bar-style"</span> /&gt;</span>
-
-<span class="comment">&lt;!-- iOS 设备上禁止将数字识别为可点击的tel link --&gt;</span>
-<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">content</span>=<span class="value">"telephone=no"</span> <span class="attribute">name</span>=<span class="value">"format-detection"</span>&gt;</span>
-</code></pre><h4 id="《在移动浏览器中使用Viewport元标签控制布局》"><a href="https://developer.mozilla.org/zh-CN/docs/Mobile/Viewport_meta_tag" target="_blank" rel="external">《在移动浏览器中使用Viewport元标签控制布局》</a></h4><h4 id="《Viewport双城记》-1"><a href="http://www.quirksmode.org/mobile/viewports.html" target="_blank" rel="external">《Viewport双城记》-1</a></h4><h4 id="《Viewport双城记》-2"><a href="http://www.quirksmode.org/mobile/viewports2.html" target="_blank" rel="external">《Viewport双城记》-2</a></h4><h4 id="Hammer-js是目前使用较广泛的一个事件库，没用过，回头用一下试试哈">Hammer.js是目前使用较广泛的一个事件库，没用过，回头用一下试试哈</h4><h4 id="weinre_远程调试">weinre 远程调试</h4><h4 id="远程测试_例如：移动云测试中心，云测">远程测试  例如：移动云测试中心，云测</h4></span>
+        <span itemprop="articleBody"><h2 id="安装SASS">安装SASS</h2><blockquote>
+<p>由于SASS是基于RUBY开发的，所幸MAC已经预装了RUBY,所以直接在终端输入</p>
+<pre><code>sudo gem <span class="keyword">install</span> sass -V
+</code></pre><p>PS: -V 可以查看安装的进程</p>
+</blockquote>
+<h2 id="安装Compass">安装Compass</h2><blockquote>
+<p>Compass是一个样式框架，里面包括了大量定义好的mixin，函数，以及对SASS的扩展，并且貌似还提供了好多插件，想生成开发版、发布版。<br>HOHO，from 百度百科,据说学会了Compass，CSS的开发效率可以上一个台阶呢</p>
+<pre><code>sudo gem <span class="keyword">install</span> compass -V
+</code></pre></blockquote>
+<h2 id="安装中遇到的问题">安装中遇到的问题</h2><blockquote>
+<ol>
+<li>mac 用户记得安装Xcode，要不无法正常安装，会报错的。</li>
+<li>尽管你<code>sudo</code>了，但会有安装不成功的情况，例如<pre><code>You don<span class="attribute">'t</span> have write permissions <span class="keyword">for</span> the /<span class="keyword">Library</span>/Ruby/Gems/
+</code></pre>类似这样的问题，解决方法<pre><code>sudo gem <span class="operator"><span class="keyword">install</span> -n /usr/<span class="keyword">local</span>/<span class="keyword">bin</span> GEM_NAME_HERE</span>
+</code></pre></li>
+</ol>
+</blockquote>
+</span>
       
     </div>
 
@@ -274,7 +277,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/笔记/" rel="tag">#笔记</a>
+            <a href="/tags/前端/" rel="tag">#前端</a>
           
         </div>
       
@@ -283,17 +286,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/09/Hexo/" rel="next" title="Hexo">
-                <i class="fa fa-chevron-left"></i> Hexo
+              <a href="/2015/06/10/跨终端WEB/" rel="next" title="跨终端WEB">
+                <i class="fa fa-chevron-left"></i> 跨终端WEB
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/03/sass之安装/" rel="prev" title="初遇 SASS">
-                初遇 SASS <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -343,8 +342,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/06/10/跨终端WEB/"
-           data-title="跨终端WEB" data-url="http://yoursite.com/2015/06/10/跨终端WEB/">
+      <div class="ds-thread" data-thread-key="2015/11/03/sass之安装/"
+           data-title="初遇 SASS" data-url="http://yoursite.com/2015/11/03/sass之安装/">
       </div>
     
   </div>
@@ -452,7 +451,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mobile_Web"><span class="nav-number">1.</span> <span class="nav-text">Mobile Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#head内的meta，写下备用"><span class="nav-number">1.1.</span> <span class="nav-text">   head内的meta，写下备用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#《在移动浏览器中使用Viewport元标签控制布局》"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">《在移动浏览器中使用Viewport元标签控制布局》</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#《Viewport双城记》-1"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">《Viewport双城记》-1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#《Viewport双城记》-2"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">《Viewport双城记》-2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hammer-js是目前使用较广泛的一个事件库，没用过，回头用一下试试哈"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">Hammer.js是目前使用较广泛的一个事件库，没用过，回头用一下试试哈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#weinre_远程调试"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">weinre 远程调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程测试_例如：移动云测试中心，云测"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">远程测试  例如：移动云测试中心，云测</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SASS"><span class="nav-number">1.</span> <span class="nav-text">安装SASS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Compass"><span class="nav-number">2.</span> <span class="nav-text">安装Compass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装中遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">安装中遇到的问题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
