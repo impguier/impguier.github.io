@@ -110,7 +110,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">修身，齐家，修身，齐家…………齐……修&%&￥%#@%#￥#%@￥@%</p>
+  <p class="site-subtitle"></p>
 </div>
 
 <div class="site-nav-toggle">
@@ -179,15 +179,133 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/02/命令行发邮件/" itemprop="url">
+                  命令行发邮件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2015-12-02T11:26:04+08:00" content="2015-12-02">
+              2015-12-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/02/命令行发邮件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/02/命令行发邮件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
-        
-        
-        
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="NodeJs_—_NodeMailer">NodeJs — NodeMailer</h2><pre><code><span class="comment">/*安装一下Module*/</span>
+npm install -g nodemailer
+
+<span class="comment">/*引用一下*/</span>
+<span class="keyword">var</span> nodemailer = <span class="built_in">require</span>(<span class="string">"/xx/xx/nodemailer"</span>);
+
+
+<span class="keyword">var</span> transporter = nodemailer.createTransport({
+        service:<span class="string">'Gmail'</span>,
+        auth:{
+        <span class="comment">/*你的邮箱地址*/</span>
+            user:<span class="string">'xxx@xxx.com'</span>,
+        <span class="comment">/*密码*/</span>
+            pass:<span class="string">'xxxx'</span>
+        }
+    });
+
+<span class="comment">/*
+  to:收件人的邮箱地址,
+  html:邮件html内容
+*/</span>
+
+<span class="keyword">var</span> mailOptions = {
+    from:<span class="string">""</span>,
+    to:<span class="string">"wangshengcai@hexindai.com,yaoaiyang@hexindai.com"</span>,
+    text:<span class="string">"helloword"</span>,
+    html:<span class="string">"&lt;b&gt;Hello world&lt;/b&gt;"</span>
+}
+<span class="comment">/*粗发*/</span>
+transporter.sendMail(mailOptions, <span class="function"><span class="keyword">function</span>(<span class="params">error, info</span>)</span>{
+    <span class="keyword">if</span>(error){
+        <span class="keyword">return</span> <span class="built_in">console</span>.log(error);
+    }
+    <span class="built_in">console</span>.log(<span class="string">'Message sent: '</span> + info.response);
+
+});
+</code></pre><h3 id="然后在terminal里node这个js就OK了">然后在terminal里node这个js就OK了</h3><h3 id="执行后会遇到两个问题">执行后会遇到两个问题</h3><ol>
+<li>[Error: Invalid login] code: ‘EAUTH’…………<br>因为用的是gmail，所以去账户里 允许不够安全的应用访问</li>
+<li>{ [Error: Connection timeout] code: ‘ETIMEDOUT’ }<br>这里我把代理管理就好了，估计是很网络协议有关^_^。。。</li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -583,7 +701,7 @@ timezone:<span class="keyword">*</span><span class="keyword">*</span><span class
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -597,7 +715,7 @@ timezone:<span class="keyword">*</span><span class="keyword">*</span><span class
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">標籤</span>
               
           </div>
