@@ -179,6 +179,15 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
 
     
       
@@ -417,9 +426,41 @@ ReactDOM.render(&lt;Input/&gt;, document.body);
 </li>
 </ul>
 <hr>
-<p>   var UserGist = React.createClass({<br>        getInitialState: function(){<br>            return {<br>                username:’’,<br>                lastGistUrl:’’<br>            }<br>        },<br>        componentDidMount:function(){<br>            $.get(this.props.source,function(result){<br>                var lastGist = result[0];<br>                if(this.isMounted()){<br>                    this.setState({<br>                        username:lastGist.owner.login,<br>                        lastGistUrl:lastGist.html_url<br>                    }):<br>                }<br>            }.bind(this));<br>        },<br>        render:function(){<br>            return (<br>                <div><br>                {this.state.username}’s last gist is<br>                <a href="{this.stat.lastGistUrl}">here</a>.<br>                </div><br>            );<br>        }<br>   });<br>   ReactDOM.render(<br>     <usergist source="https://api.github.com/users/octocat/gists">,<br>     document.body<br>   );<br>   &lt;!—<br>        Ajax happens in componentDidMount </usergist></p>
-<pre><code><span class="comment">--&gt;</span>
-</code></pre><hr>
+<pre><code><span class="keyword">var</span> <span class="type">UserGist</span> = <span class="type">React</span>.createClass({
+     getInitialState: function(){
+         <span class="keyword">return</span> {
+             username:'',
+             lastGistUrl:''
+         }
+     },
+     componentDidMount:function(){
+         $.get(this.props.source,function(<span class="literal">result</span>){
+             <span class="keyword">var</span> lastGist = <span class="literal">result</span>[<span class="number">0</span>];
+             <span class="keyword">if</span>(this.isMounted()){
+                 this.setState({
+                     username:lastGist.owner.login,
+                     lastGistUrl:lastGist.html_url
+                 }):
+             }
+         }.<span class="keyword">bind</span>(this));
+     },
+     render:function(){
+         <span class="keyword">return</span> (
+             &lt;<span class="keyword">div</span>&gt;
+             {this.state.username}'s last gist <span class="keyword">is</span> 
+             &lt;a href={this.stat.lastGistUrl}&gt;here&lt;/a&gt;.
+             &lt;/<span class="keyword">div</span>&gt;
+         );
+     }
+});
+<span class="type">ReactDOM</span>.render(
+  &lt;<span class="type">UserGist</span> source=<span class="string">"https://api.github.com/users/octocat/gists"</span> /&gt;,
+  document.body
+);
+</code></pre>   <!-- 
+        Ajax happens in componentDidMount 
+    -->
+<hr>
 <p>   安装 Babel 用以解析JSX<br>   用法<br>        babel src —out-dir build<br>   <a href="http://facebook.github.io/react/docs/reusable-components.html" target="_blank" rel="external">PropTypes 支持验证的类型</a><br>   <a href="http://facebook.github.io/react/docs/events.html#supported-events" target="_blank" rel="external">React 支持的事件类型</a><br>   <a href="http://facebook.github.io/react/docs/forms.html" target="_blank" rel="external">表单类型</a><br>   <a href="http://facebook.github.io/react/docs/component-specs.html#lifecycle-methods" target="_blank" rel="external">整个生命周期的钩子方法</a></p>
 
             
