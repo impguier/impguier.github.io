@@ -202,6 +202,267 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/25/React-笔记/" itemprop="url">
+                  React 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2015-12-25T11:35:43+08:00" content="2015-12-25">
+              2015-12-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/25/React-笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/25/React-笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+<span class="comment">&lt;!--Reactjs 核心库--&gt;</span>
+
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+<span class="comment">&lt;!--react-dom 提供与操作DOM相关的功能--&gt;</span>
+
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/browser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+<span class="comment">&lt;!--Browser.js 将JSX语法转换为JS语法,最好在服务器端进行转换--&gt;</span>
+
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/babel"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+
+<span class="comment">&lt;!--JSX语法的文件都放在这里,注意--&gt;</span>
+</code></pre><hr>
+<pre><code>var names = ['小a','小b','小c'];
+ReactDOM.render(
+    <span class="tag">&lt;<span class="title">div</span>&gt;</span>
+    <span class="comment">&lt;!-- '&lt;'开始以html代码解析 --&gt;</span>
+    {
+    <span class="comment">&lt;!-- '{}'开始以html代码解析 --&gt;</span>
+        names.map(function(name){
+            return <span class="tag">&lt;<span class="title">div</span>&gt;</span>Hello,{name}!<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        })
+    }
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>,
+    document.getElementById('example')
+)
+</code></pre><hr>
+<pre><code>var HelloMessage = React.createClass({
+    render:function(){
+        return <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello {this.props.name}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    }
+});
+
+ReactDOM.render(
+    <span class="tag">&lt;<span class="title">HelloMessage</span> <span class="attribute">name</span>=<span class="value">'Imp'</span> /&gt;</span>,
+    document.getElementById('example')
+);
+<span class="comment">&lt;!-- 组件名首字母必须大写 &amp;&amp; 组件应该只有一个子节点--&gt;</span>
+</code></pre><hr>
+<pre><code>var NotesList = React.createClass({
+    render:function(){
+        return (
+            <span class="tag">&lt;<span class="title">ol</span>&gt;</span>
+            {
+                React.Children.map(this.props.children,function(child){
+                    return <span class="tag">&lt;<span class="title">li</span>&gt;</span>{child}<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+                })
+            }
+            <span class="tag">&lt;/<span class="title">ol</span>&gt;</span>
+        )
+    }
+});
+
+ReactDOM.render(
+    <span class="tag">&lt;<span class="title">NOtesList</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">span</span>&gt;</span>hello<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">span</span>&gt;</span>world<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">NOtesList</span>&gt;</span>,
+    document.body
+);
+<span class="comment">&lt;!-- 使用this.props.children 访问组件的子节点 
+     如果组件没有子节点,值是undifined
+     如果组件只有一个,值是object
+     如果组件有多个,值是array
+--&gt;</span>
+</code></pre><hr>
+<pre><code>var MyTitle = React.createClass({
+    propTypes:{
+        title:React.PropTypes.string.isRequired
+    },
+    render:function(){
+        return <span class="tag">&lt;<span class="title">h1</span>&gt;</span>{this.prop.title}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+    }
+});
+
+var data = 123;
+ReactDOM.render(
+    <span class="tag">&lt;<span class="title">MyTitle</span> <span class="attribute">title</span>=<span class="value">{data}</span> /&gt;</span>,
+    document.body
+)
+<span class="comment">&lt;!-- 
+    可以通过propTypes里添加props的被需要的输入类型
+    如果要给prop设置默认值,可以通过getDefaultProps:function(){}进行设置
+ --&gt;</span>
+</code></pre><hr>
+<pre><code> var MyComponent = React.createClass({
+    handleClick : function(){
+        this.refs.myTextInput.focus();
+    },
+    render:function(){
+        return (
+            <span class="tag">&lt;<span class="title">div</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ref</span>=<span class="value">"myTextInput"</span> /&gt;</span>
+                <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"Focus the text input"</span> <span class="attribute">onClick</span>=<span class="value">{this.handleClick}</span> /&gt;</span>
+            <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        )
+    }
+ });
+ReactDOM.render(
+    <span class="tag">&lt;<span class="title">MyComponent</span> /&gt;</span>,
+    document.getElementById("example")
+)
+<span class="comment">&lt;!-- this.refs.myTextInput 来获取DOM元素 --&gt;</span>
+</code></pre><hr>
+<pre><code><span class="keyword">var</span> LikeButton = React.createClass({
+  <span class="attribute">getInitialState</span>: <span class="keyword">function</span>() {
+    <span class="keyword">return</span> {<span class="attribute">liked</span>: <span class="literal">false</span>};
+  },
+  <span class="attribute">handleClick</span>: <span class="keyword">function</span>(event) {
+    <span class="keyword">this</span>.setState({<span class="attribute">liked</span>: !<span class="keyword">this</span>.state.liked});
+  },
+  <span class="attribute">render</span>: <span class="keyword">function</span>() {
+    <span class="keyword">var</span> text = <span class="keyword">this</span>.state.liked ? <span class="string">'like'</span> : <span class="string">'haven\'t liked'</span>;
+    <span class="keyword">return</span> (
+      &lt;p onClick={<span class="keyword">this</span>.handleClick}&gt;
+        You {text} <span class="keyword">this</span>. Click <span class="keyword">to</span> toggle.
+      &lt;/p&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;LikeButton /&gt;,
+  <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>)
+);
+&lt;!-- 
+     getInitialState <span class="pi">////</span> get <span class="keyword">by</span> <span class="keyword">this</span>.state  <span class="pi">////</span>/ set <span class="keyword">by</span> <span class="keyword">this</span>.setState
+     you can user component attribute <span class="keyword">to</span> register event handlers<span class="function">
+--&gt;</span> 
+</code></pre><hr>
+<pre><code>var Input = React.createClass({
+  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span></span> {
+    <span class="keyword">return</span> {<span class="keyword">value</span>: <span class="string">'Hello!'</span>};
+  },
+  handleChange: <span class="function"><span class="keyword">function</span><span class="params">(event)</span></span> {
+    this.setState({<span class="keyword">value</span>: event.<span class="type">target</span>.<span class="keyword">value</span>});
+  },
+  render: <span class="function"><span class="keyword">function</span></span> () {
+    var <span class="keyword">value</span> = this.state.<span class="keyword">value</span>;
+    <span class="keyword">return</span> (
+      &lt;div&gt;
+        &lt;input <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">value</span>={<span class="keyword">value</span>} onChange={this.handleChange} /&gt;
+        &lt;p&gt;{<span class="keyword">value</span>}&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+ReactDOM.render(&lt;Input/&gt;, document.body);
+&lt;<span class="comment">!-- </span>
+    <span class="keyword">if</span> u want to <span class="keyword">access</span> or update the <span class="keyword">value</span> <span class="type">in</span> response to user input,u can user onChange event
+ --&gt;
+</code></pre><hr>
+<ul>
+<li>componentWillMount(): Fired once, before initial rendering occurs. Good place to wire-up message listeners. this.setState doesn’t work here.</li>
+<li>componentDidMount(): Fired once, after initial rendering occurs. Can use this.getDOMNode().</li>
+<li>componentWillUpdate(object nextProps, object nextState): Fired after the component’s updates are made to the DOM. Can use this.getDOMNode() for updates.</li>
+<li>componentDidUpdate(object prevProps, object prevState): Invoked immediately after the component’s updates are flushed to the DOM. This method is not called for the initial render. Use this as an opportunity to operate on the DOM when the component has been updated.</li>
+<li>componentWillUnmount(): Fired immediately before a component is unmounted from the DOM. Good place to remove message listeners or general clean up.</li>
+<li>componentWillReceiveProps(object nextProps): Fired when a component is receiving new props. You might want to this.setState depending on the props.</li>
+<li><p>shouldComponentUpdate(object nextProps, object nextState): Fired before rendering when new props or state are received. return false if you know an update isn’t needed.</p>
+<blockquote>
+<p>three main parts of lifecycle:mouting(insert),updating(rerender),unmounting(remove)<br>  will methods are called before sth happens , did method are called after sth happens </p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p>   var UserGist = React.createClass({<br>        getInitialState: function(){<br>            return {<br>                username:’’,<br>                lastGistUrl:’’<br>            }<br>        },<br>        componentDidMount:function(){<br>            $.get(this.props.source,function(result){<br>                var lastGist = result[0];<br>                if(this.isMounted()){<br>                    this.setState({<br>                        username:lastGist.owner.login,<br>                        lastGistUrl:lastGist.html_url<br>                    }):<br>                }<br>            }.bind(this));<br>        },<br>        render:function(){<br>            return (<br>                <div><br>                {this.state.username}’s last gist is<br>                <a href="{this.stat.lastGistUrl}">here</a>.<br>                </div><br>            );<br>        }<br>   });<br>   ReactDOM.render(<br>     <usergist source="https://api.github.com/users/octocat/gists">,<br>     document.body<br>   );<br>   &lt;!—<br>        Ajax happens in componentDidMount </usergist></p>
+<pre><code><span class="comment">--&gt;</span>
+</code></pre><hr>
+<p>   安装 Babel 用以解析JSX<br>   用法<br>        babel src —out-dir build<br>   <a href="http://facebook.github.io/react/docs/reusable-components.html" target="_blank" rel="external">PropTypes 支持验证的类型</a><br>   <a href="http://facebook.github.io/react/docs/events.html#supported-events" target="_blank" rel="external">React 支持的事件类型</a><br>   <a href="http://facebook.github.io/react/docs/forms.html" target="_blank" rel="external">表单类型</a><br>   <a href="http://facebook.github.io/react/docs/component-specs.html#lifecycle-methods" target="_blank" rel="external">整个生命周期的钩子方法</a></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/08/从浏览器渲染原理讲CSS性能/" itemprop="url">
                   从浏览器渲染原理讲CSS性能
                 </a>
@@ -797,7 +1058,7 @@ timezone:<span class="keyword">*</span><span class="keyword">*</span><span class
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -846,6 +1107,13 @@ timezone:<span class="keyword">*</span><span class="keyword">*</span><span class
         
 
         <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://imkratos.github.io/" target="_blank">志硕之站</a>
+              </span>
+            
           
         </div>
 
