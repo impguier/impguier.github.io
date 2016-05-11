@@ -179,12 +179,282 @@
 
     
     
+
+    
       
-      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/09/Learning-Reactjs-Notebook-3-事件处理/" itemprop="url">
+                  Learning Reactjs Notebook 3 (事件处理)
+                </a>
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-05-09T16:46:10+08:00" content="2016-05-09">
+              2016-05-09
+            </time>
+          </span>
+
           
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/09/Learning-Reactjs-Notebook-3-事件处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Learning-Reactjs-Notebook-3-事件处理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/09/Learning-Reactjs-Notebook-2/" itemprop="url">
+                  Learning Reactjs Notebook 2（数据流git ）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-05-09T15:57:21+08:00" content="2016-05-09">
+              2016-05-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/09/Learning-Reactjs-Notebook-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Learning-Reactjs-Notebook-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h3 id="数据流">数据流</h3><h4 id="Props">Props</h4><p>setProps({x:x});</p>
+<p>可以通过this.props访问props,但绝对 不能 通过这种方修改它;</p>
+<p>PropTypes</p>
+<p>限制props属性各个对象的类型</p>
+<p>getDefaultProps</p>
+<p>为组件添加 getDefaultProps 函数来设置属性的默认值,不过,这应该只针对那些非必需属性</p>
+<h4 id="State">State</h4><p>state可以通过setState来修改,也可以通过getInitialState设置一组默认值,只要setState被调用,render就会被调用</p>
+<p>千万不要直接修改this.state</p>
+<p>尽可能把props当做数据源</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/09/Lerning-Reactjs-Notebook-1/" itemprop="url">
+                  Lerning Reactjs Notebook (1)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-05-09T15:32:13+08:00" content="2016-05-09">
+              2016-05-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/09/Lerning-Reactjs-Notebook-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Lerning-Reactjs-Notebook-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h1 id="生命周期">生命周期</h1><p>实例化<br> getInitialState  初始化<br> componentWillMount 修改初始化<br> render 进行初始化<br> componentDidMount 之后进行插件渲染</p>
+<p>存在期<br>componentWillReceiveProps 交互操作进行之后会对初始化的状态什么的进行更新<br>shouldComponentUpdate 没懂<br>componentWillUpdate 修改<br>componentDidUpdate 渲染</p>
+<p>销毁<br>componentWillUnmount</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
 
   
   
@@ -298,12 +568,6 @@
     </footer>
   </article>
 
-
-        
-      
-
-      
-    
 
     
       
@@ -1214,7 +1478,7 @@ timezone:<span class="keyword">*</span><span class="keyword">*</span><span class
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>

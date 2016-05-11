@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -53,40 +53,19 @@
 
 
 
-<meta name="description" content="&amp;lt;script src=&quot;../build/react.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-
-&amp;lt;!--Reactjs 核心库--&amp;gt;
-
-&amp;lt;script src=&quot;../build/react-dom.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-
-&amp;lt;!--react-dom 提供与操作DOM相关的功能--&amp;gt;
-
-&amp;lt;script src=&quot;../bui">
+<meta name="description" content="生命周期实例化 getInitialState  初始化 componentWillMount 修改初始化 render 进行初始化 componentDidMount 之后进行插件渲染
+存在期componentWillReceiveProps 交互操作进行之后会对初始化的状态什么的进行更新shouldComponentUpdate 没懂componentWillUpdate 修改componen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React 笔记">
-<meta property="og:url" content="http://yoursite.com/2015/12/25/React-笔记/index.html">
+<meta property="og:title" content="Lerning Reactjs Notebook (1)">
+<meta property="og:url" content="http://yoursite.com/2016/05/09/Lerning-Reactjs-Notebook-1/index.html">
 <meta property="og:site_name" content="ImpGuier">
-<meta property="og:description" content="&amp;lt;script src=&quot;../build/react.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-
-&amp;lt;!--Reactjs 核心库--&amp;gt;
-
-&amp;lt;script src=&quot;../build/react-dom.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-
-&amp;lt;!--react-dom 提供与操作DOM相关的功能--&amp;gt;
-
-&amp;lt;script src=&quot;../bui">
-<meta property="og:updated_time" content="2015-12-31T07:14:02.000Z">
+<meta property="og:description" content="生命周期实例化 getInitialState  初始化 componentWillMount 修改初始化 render 进行初始化 componentDidMount 之后进行插件渲染
+存在期componentWillReceiveProps 交互操作进行之后会对初始化的状态什么的进行更新shouldComponentUpdate 没懂componentWillUpdate 修改componen">
+<meta property="og:updated_time" content="2016-05-09T07:54:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React 笔记">
-<meta name="twitter:description" content="&amp;lt;script src=&quot;../build/react.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-
-&amp;lt;!--Reactjs 核心库--&amp;gt;
-
-&amp;lt;script src=&quot;../build/react-dom.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-
-&amp;lt;!--react-dom 提供与操作DOM相关的功能--&amp;gt;
-
-&amp;lt;script src=&quot;../bui">
+<meta name="twitter:title" content="Lerning Reactjs Notebook (1)">
+<meta name="twitter:description" content="生命周期实例化 getInitialState  初始化 componentWillMount 修改初始化 render 进行初始化 componentDidMount 之后进行插件渲染
+存在期componentWillReceiveProps 交互操作进行之后会对初始化的状态什么的进行更新shouldComponentUpdate 没懂componentWillUpdate 修改componen">
 
 
 
@@ -98,7 +77,7 @@
   };
 </script>
 
-  <title> React 笔记 | ImpGuier </title>
+  <title> Lerning Reactjs Notebook (1) | ImpGuier </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -218,7 +197,7 @@
             
             
               
-                React 笔记
+                Lerning Reactjs Notebook (1)
               
             
           </h1>
@@ -227,8 +206,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-12-25T11:35:43+08:00" content="2015-12-25">
-              2015-12-25
+            <time itemprop="dateCreated" datetime="2016-05-09T15:32:13+08:00" content="2016-05-09">
+              2016-05-09
             </time>
           </span>
 
@@ -238,8 +217,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/25/React-笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/25/React-笔记/" itemprop="commentsCount"></span>
+                <a href="/2016/05/09/Lerning-Reactjs-Notebook-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Lerning-Reactjs-Notebook-1/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -258,238 +237,30 @@
       
 
       
-        <span itemprop="articleBody"><pre><code><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-
-<span class="comment">&lt;!--Reactjs 核心库--&gt;</span>
-
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-
-<span class="comment">&lt;!--react-dom 提供与操作DOM相关的功能--&gt;</span>
-
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/browser.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-
-<span class="comment">&lt;!--Browser.js 将JSX语法转换为JS语法,最好在服务器端进行转换--&gt;</span>
-
-<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/babel"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-
-<span class="comment">&lt;!--JSX语法的文件都放在这里,注意--&gt;</span>
-</code></pre><hr>
-<pre><code>var names = ['小a','小b','小c'];
-ReactDOM.render(
-    <span class="tag">&lt;<span class="title">div</span>&gt;</span>
-    <span class="comment">&lt;!-- '&lt;'开始以html代码解析 --&gt;</span>
-    {
-    <span class="comment">&lt;!-- '{}'开始以html代码解析 --&gt;</span>
-        names.map(function(name){
-            return <span class="tag">&lt;<span class="title">div</span>&gt;</span>Hello,{name}!<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-        })
-    }
-    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>,
-    document.getElementById('example')
-)
-</code></pre><hr>
-<pre><code>var HelloMessage = React.createClass({
-    render:function(){
-        return <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello {this.props.name}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-    }
-});
-
-ReactDOM.render(
-    <span class="tag">&lt;<span class="title">HelloMessage</span> <span class="attribute">name</span>=<span class="value">'Imp'</span> /&gt;</span>,
-    document.getElementById('example')
-);
-<span class="comment">&lt;!-- 组件名首字母必须大写 &amp;&amp; 组件应该只有一个子节点--&gt;</span>
-</code></pre><hr>
-<pre><code>var NotesList = React.createClass({
-    render:function(){
-        return (
-            <span class="tag">&lt;<span class="title">ol</span>&gt;</span>
-            {
-                React.Children.map(this.props.children,function(child){
-                    return <span class="tag">&lt;<span class="title">li</span>&gt;</span>{child}<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-                })
-            }
-            <span class="tag">&lt;/<span class="title">ol</span>&gt;</span>
-        )
-    }
-});
-
-ReactDOM.render(
-    <span class="tag">&lt;<span class="title">NOtesList</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">span</span>&gt;</span>hello<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">span</span>&gt;</span>world<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">NOtesList</span>&gt;</span>,
-    document.body
-);
-<span class="comment">&lt;!-- 使用this.props.children 访问组件的子节点 
-     如果组件没有子节点,值是undifined
-     如果组件只有一个,值是object
-     如果组件有多个,值是array
---&gt;</span>
-</code></pre><hr>
-<pre><code>var MyTitle = React.createClass({
-    propTypes:{
-        title:React.PropTypes.string.isRequired
-    },
-    render:function(){
-        return <span class="tag">&lt;<span class="title">h1</span>&gt;</span>{this.prop.title}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-    }
-});
-
-var data = 123;
-ReactDOM.render(
-    <span class="tag">&lt;<span class="title">MyTitle</span> <span class="attribute">title</span>=<span class="value">{data}</span> /&gt;</span>,
-    document.body
-)
-<span class="comment">&lt;!-- 
-    可以通过propTypes里添加props的被需要的输入类型
-    如果要给prop设置默认值,可以通过getDefaultProps:function(){}进行设置
- --&gt;</span>
-</code></pre><hr>
-<pre><code> var MyComponent = React.createClass({
-    handleClick : function(){
-        this.refs.myTextInput.focus();
-    },
-    render:function(){
-        return (
-            <span class="tag">&lt;<span class="title">div</span>&gt;</span>
-                <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ref</span>=<span class="value">"myTextInput"</span> /&gt;</span>
-                <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"Focus the text input"</span> <span class="attribute">onClick</span>=<span class="value">{this.handleClick}</span> /&gt;</span>
-            <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-        )
-    }
- });
-ReactDOM.render(
-    <span class="tag">&lt;<span class="title">MyComponent</span> /&gt;</span>,
-    document.getElementById("example")
-)
-<span class="comment">&lt;!-- this.refs.myTextInput 来获取DOM元素 --&gt;</span>
-</code></pre><hr>
-<pre><code><span class="keyword">var</span> LikeButton = React.createClass({
-  <span class="attribute">getInitialState</span>: <span class="keyword">function</span>() {
-    <span class="keyword">return</span> {<span class="attribute">liked</span>: <span class="literal">false</span>};
-  },
-  <span class="attribute">handleClick</span>: <span class="keyword">function</span>(event) {
-    <span class="keyword">this</span>.setState({<span class="attribute">liked</span>: !<span class="keyword">this</span>.state.liked});
-  },
-  <span class="attribute">render</span>: <span class="keyword">function</span>() {
-    <span class="keyword">var</span> text = <span class="keyword">this</span>.state.liked ? <span class="string">'like'</span> : <span class="string">'haven\'t liked'</span>;
-    <span class="keyword">return</span> (
-      &lt;p onClick={<span class="keyword">this</span>.handleClick}&gt;
-        You {text} <span class="keyword">this</span>. Click <span class="keyword">to</span> toggle.
-      &lt;/p&gt;
-    );
-  }
-});
-
-ReactDOM.render(
-  &lt;LikeButton /&gt;,
-  <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>)
-);
-&lt;!-- 
-     getInitialState <span class="pi">////</span> get <span class="keyword">by</span> <span class="keyword">this</span>.state  <span class="pi">////</span>/ set <span class="keyword">by</span> <span class="keyword">this</span>.setState
-     you can user component attribute <span class="keyword">to</span> register event handlers<span class="function">
---&gt;</span> 
-</code></pre><hr>
-<pre><code>var Input = React.createClass({
-  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span></span> {
-    <span class="keyword">return</span> {<span class="keyword">value</span>: <span class="string">'Hello!'</span>};
-  },
-  handleChange: <span class="function"><span class="keyword">function</span><span class="params">(event)</span></span> {
-    this.setState({<span class="keyword">value</span>: event.<span class="type">target</span>.<span class="keyword">value</span>});
-  },
-  render: <span class="function"><span class="keyword">function</span></span> () {
-    var <span class="keyword">value</span> = this.state.<span class="keyword">value</span>;
-    <span class="keyword">return</span> (
-      &lt;div&gt;
-        &lt;input <span class="keyword">type</span>=<span class="string">"text"</span> <span class="keyword">value</span>={<span class="keyword">value</span>} onChange={this.handleChange} /&gt;
-        &lt;p&gt;{<span class="keyword">value</span>}&lt;/p&gt;
-      &lt;/div&gt;
-    );
-  }
-});
-
-ReactDOM.render(&lt;Input/&gt;, document.body);
-&lt;<span class="comment">!-- </span>
-    <span class="keyword">if</span> u want to <span class="keyword">access</span> or update the <span class="keyword">value</span> <span class="type">in</span> response to user input,u can user onChange event
- --&gt;
-</code></pre><hr>
-<ul>
-<li>componentWillMount(): Fired once, before initial rendering occurs. Good place to wire-up message listeners. this.setState doesn’t work here.</li>
-<li>componentDidMount(): Fired once, after initial rendering occurs. Can use this.getDOMNode().</li>
-<li>componentWillUpdate(object nextProps, object nextState): Fired after the component’s updates are made to the DOM. Can use this.getDOMNode() for updates.</li>
-<li>componentDidUpdate(object prevProps, object prevState): Invoked immediately after the component’s updates are flushed to the DOM. This method is not called for the initial render. Use this as an opportunity to operate on the DOM when the component has been updated.</li>
-<li>componentWillUnmount(): Fired immediately before a component is unmounted from the DOM. Good place to remove message listeners or general clean up.</li>
-<li>componentWillReceiveProps(object nextProps): Fired when a component is receiving new props. You might want to this.setState depending on the props.</li>
-<li><p>shouldComponentUpdate(object nextProps, object nextState): Fired before rendering when new props or state are received. return false if you know an update isn’t needed.</p>
-<blockquote>
-<p>three main parts of lifecycle:mouting(insert),updating(rerender),unmounting(remove)<br>  will methods are called before sth happens , did method are called after sth happens </p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<pre><code><span class="keyword">var</span> <span class="type">UserGist</span> = <span class="type">React</span>.createClass({
-     getInitialState: function(){
-         <span class="keyword">return</span> {
-             username:'',
-             lastGistUrl:''
-         }
-     },
-     componentDidMount:function(){
-         $.get(this.props.source,function(<span class="literal">result</span>){
-             <span class="keyword">var</span> lastGist = <span class="literal">result</span>[<span class="number">0</span>];
-             <span class="keyword">if</span>(this.isMounted()){
-                 this.setState({
-                     username:lastGist.owner.login,
-                     lastGistUrl:lastGist.html_url
-                 }):
-             }
-         }.<span class="keyword">bind</span>(this));
-     },
-     render:function(){
-         <span class="keyword">return</span> (
-             &lt;<span class="keyword">div</span>&gt;
-             {this.state.username}'s last gist <span class="keyword">is</span> 
-             &lt;a href={this.stat.lastGistUrl}&gt;here&lt;/a&gt;.
-             &lt;/<span class="keyword">div</span>&gt;
-         );
-     }
-});
-<span class="type">ReactDOM</span>.render(
-  &lt;<span class="type">UserGist</span> source=<span class="string">"https://api.github.com/users/octocat/gists"</span> /&gt;,
-  document.body
-);
- &lt;!-- <span class="type">Ajax</span> happens <span class="keyword">in</span> componentDidMount --&gt;
-</code></pre><hr>
-<p>安装 Babel 用以解析JSX<br>    npm install -g babel<br>用法<br>    babel src —out-dir build</p>
-<p>   1.<a href="http://facebook.github.io/react/docs/reusable-components.html" target="_blank" rel="external">PropTypes 支持验证的类型</a><br>   2.<a href="http://facebook.github.io/react/docs/events.html#supported-events" target="_blank" rel="external">React 支持的事件类型</a><br>   3.<a href="http://facebook.github.io/react/docs/forms.html" target="_blank" rel="external">表单类型</a><br>   4.<a href="http://facebook.github.io/react/docs/component-specs.html#lifecycle-methods" target="_blank" rel="external">整个生命周期的钩子方法</a></p>
+        <span itemprop="articleBody"><h1 id="生命周期">生命周期</h1><p>实例化<br> getInitialState  初始化<br> componentWillMount 修改初始化<br> render 进行初始化<br> componentDidMount 之后进行插件渲染</p>
+<p>存在期<br>componentWillReceiveProps 交互操作进行之后会对初始化的状态什么的进行更新<br>shouldComponentUpdate 没懂<br>componentWillUpdate 修改<br>componentDidUpdate 渲染</p>
+<p>销毁<br>componentWillUnmount</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/前端/" rel="tag">#前端</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/08/从浏览器渲染原理讲CSS性能/" rel="next" title="从浏览器渲染原理讲CSS性能">
-                <i class="fa fa-chevron-left"></i> 从浏览器渲染原理讲CSS性能
+              <a href="/2015/12/31/2016将做之事/" rel="next" title="2016 WiLl Be BeTtEr">
+                <i class="fa fa-chevron-left"></i> 2016 WiLl Be BeTtEr
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/31/2016将做之事/" rel="prev" title="2016 WiLl Be BeTtEr">
-                2016 WiLl Be BeTtEr <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/09/Learning-Reactjs-Notebook-2/" rel="prev" title="Learning Reactjs Notebook 2（数据流git ）">
+                Learning Reactjs Notebook 2（数据流git ） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,8 +311,8 @@ ReactDOM.render(&lt;Input/&gt;, document.body);
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/25/React-笔记/"
-           data-title="React 笔记" data-url="http://yoursite.com/2015/12/25/React-笔记/">
+      <div class="ds-thread" data-thread-key="2016/05/09/Lerning-Reactjs-Notebook-1/"
+           data-title="Lerning Reactjs Notebook (1)" data-url="http://yoursite.com/2016/05/09/Lerning-Reactjs-Notebook-1/">
       </div>
     
   </div>
@@ -656,7 +427,7 @@ ReactDOM.render(&lt;Input/&gt;, document.body);
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#生命周期"><span class="nav-number">1.</span> <span class="nav-text">生命周期</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
