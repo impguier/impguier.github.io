@@ -53,25 +53,28 @@
 
 
 
-<meta name="description" content="事件处理绑定事件处理器触控事件需要通过代码手动启用
-    React.initializeTouchEvents(true);
-事件和状态根据状态进行渲染更新状态更新组件状态有两种方案:组件的setState和replaceState方法.
-事件对象">
+<meta name="description" content="Webpack with React
+ 简单说webpack是一个module加载器,可以把项目内html,js,css以模块化的方式加载进项目内。 提供了很多的loader用于加载、解析不同的lib 或者 frame。 提供了许多plugin,实现诸如全局变量、模块热替换等功能。
+ 总之是相当的全面,可以实现大部分前端工程化、模块化的功能
+Hot Module Replacement
+HMR意思">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learning Reactjs Notebook 3 (事件处理)">
-<meta property="og:url" content="http://yoursite.com/2016/05/09/Learning-Reactjs-Notebook-3-事件处理/index.html">
+<meta property="og:title" content="webpack Hot Module Replacement">
+<meta property="og:url" content="http://yoursite.com/2016/12/09/webpack Hot Module Replacement/index.html">
 <meta property="og:site_name" content="ImpGuier">
-<meta property="og:description" content="事件处理绑定事件处理器触控事件需要通过代码手动启用
-    React.initializeTouchEvents(true);
-事件和状态根据状态进行渲染更新状态更新组件状态有两种方案:组件的setState和replaceState方法.
-事件对象">
-<meta property="og:updated_time" content="2016-05-11T07:18:36.000Z">
+<meta property="og:description" content="Webpack with React
+ 简单说webpack是一个module加载器,可以把项目内html,js,css以模块化的方式加载进项目内。 提供了很多的loader用于加载、解析不同的lib 或者 frame。 提供了许多plugin,实现诸如全局变量、模块热替换等功能。
+ 总之是相当的全面,可以实现大部分前端工程化、模块化的功能
+Hot Module Replacement
+HMR意思">
+<meta property="og:updated_time" content="2016-12-09T09:58:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Learning Reactjs Notebook 3 (事件处理)">
-<meta name="twitter:description" content="事件处理绑定事件处理器触控事件需要通过代码手动启用
-    React.initializeTouchEvents(true);
-事件和状态根据状态进行渲染更新状态更新组件状态有两种方案:组件的setState和replaceState方法.
-事件对象">
+<meta name="twitter:title" content="webpack Hot Module Replacement">
+<meta name="twitter:description" content="Webpack with React
+ 简单说webpack是一个module加载器,可以把项目内html,js,css以模块化的方式加载进项目内。 提供了很多的loader用于加载、解析不同的lib 或者 frame。 提供了许多plugin,实现诸如全局变量、模块热替换等功能。
+ 总之是相当的全面,可以实现大部分前端工程化、模块化的功能
+Hot Module Replacement
+HMR意思">
 
 
 
@@ -83,7 +86,7 @@
   };
 </script>
 
-  <title> Learning Reactjs Notebook 3 (事件处理) | ImpGuier </title>
+  <title> webpack Hot Module Replacement | ImpGuier </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -203,7 +206,7 @@
             
             
               
-                Learning Reactjs Notebook 3 (事件处理)
+                webpack Hot Module Replacement
               
             
           </h1>
@@ -212,8 +215,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-05-09T16:46:10+08:00" content="2016-05-09">
-              2016-05-09
+            <time itemprop="dateCreated" datetime="2016-12-09T17:58:09+08:00" content="2016-12-09">
+              2016-12-09
             </time>
           </span>
 
@@ -223,8 +226,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/09/Learning-Reactjs-Notebook-3-事件处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/09/Learning-Reactjs-Notebook-3-事件处理/" itemprop="commentsCount"></span>
+                <a href="/2016/12/09/webpack Hot Module Replacement/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/webpack Hot Module Replacement/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -243,10 +246,143 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="事件处理">事件处理</h3><h4 id="绑定事件处理器">绑定事件处理器</h4><pre><code>触控事件需要通过代码手动启用
-    React.initializeTouchEvents<span class="params">(<span class="literal">true</span>)</span>;
-</code></pre><h4 id="事件和状态">事件和状态</h4><h4 id="根据状态进行渲染">根据状态进行渲染</h4><h4 id="更新状态">更新状态</h4><pre><code>更新组件状态有两种方案:组件的<span class="built_in">set</span>State和replaceState方法.
-</code></pre><h4 id="事件对象">事件对象</h4></span>
+        <span itemprop="articleBody"><h1 id="Webpack_with_React">Webpack with React</h1><hr>
+<p> 简单说webpack是一个module加载器,可以把项目内html,js,css以模块化的方式加载进项目内。<br> 提供了很多的loader用于加载、解析不同的lib 或者 frame。<br> 提供了许多plugin,实现诸如全局变量、模块热替换等功能。</p>
+<p> 总之是相当的全面,可以实现大部分前端工程化、模块化的功能</p>
+<h2 id="Hot_Module_Replacement">Hot Module Replacement</h2><hr>
+<p><code>HMR</code>意思是模块热替换(字面翻译哈哈),就是你在代码中修改代码,无需在浏览器中刷新,能够自己的更新浏览器中的代码,直接呈现在你的面前,解放你的双手,节省你的键盘。</p>
+<h3 id="实现方式">实现方式</h3><p> 首先你要自己build一个项目,配置好你webpack.config,然后写一个简单的module。<br> 你会在这之中看到Hot Module Replacement 的相关实现方式,大家也可以试试。<br> 这里主要讲的是另外的实现方式哈。   </p>
+<h4 id="server-js">server.js</h4><pre><code><span class="comment">/*
+    path NodeJs Api 用于操作目录对象
+    webpack
+    dev-server 其实搭建了一个小型的express项目
+    config 是你的webpack配置文件
+*/</span>
+<span class="keyword">var</span> path = <span class="keyword">require</span>(<span class="string">'path'</span>);
+<span class="keyword">var</span> webpack = <span class="keyword">require</span>(<span class="string">'webpack'</span>);
+<span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> config = <span class="keyword">require</span>(<span class="string">"./webpack.dev.config"</span>);
+
+<span class="comment">/*
+    app 获取一个express的实例
+    compile 返回一个Compiler实例
+    webpack-dev-middleware            
+    webpack hot middleware
+    用来实现热替换的中间件
+    app.get('*'…… 配置路由        
+    最后启用端口监听        
+*/</span>
+<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> compile = webpack(config);
+
+app.<span class="keyword">use</span>(<span class="keyword">require</span>(<span class="string">'webpack-dev-middleware'</span>)(compile,{
+    noInfo: <span class="keyword">true</span>,
+    publicPath: config.output.publicPath
+}));
+
+app.<span class="keyword">use</span>(<span class="keyword">require</span>(<span class="string">'webpack-hot-middleware'</span>)(compile,{
+    log: console.log, path: <span class="string">'/__webpack_hmr'</span>, heartbeat: <span class="number">10</span> * <span class="number">1000</span>
+}));
+
+app.get(<span class="string">'*'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
+    res.sendFile(path.join(__dirname,<span class="string">'index.html'</span>));
+});
+
+app.listen(<span class="number">8000</span>,<span class="string">'127.0.0.1'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{});
+</code></pre><hr>
+<h3 id="webpack-dev-config-js">webpack.dev.config.js</h3><pre><code><span class="keyword">var</span> webpack = <span class="keyword">require</span>(<span class="string">"webpack"</span>);
+<span class="keyword">var</span> path = <span class="keyword">require</span>(<span class="string">"path"</span>);
+<span class="keyword">var</span> config = {
+    devtool: <span class="string">'source-map'</span>,
+    <span class="comment">//  app 获取一个express的实例</span>
+    <span class="comment">//  compile 返回一个Compiler实例</span>
+    <span class="comment">//  webpack-dev-middleware            </span>
+    <span class="comment">//  webpack hot middleware</span>
+    <span class="comment">//  用来实现热替换的中间件</span>
+    <span class="comment">//  app.get('*'…… 配置路由        </span>
+    <span class="comment">//  最后启用端口监听        </span>
+    entry:[
+        <span class="string">'webpack-hot-middleware/client?path=/__webpack_hmr&amp;timeout=20000&amp;reload=true'</span>,
+        __dirname + <span class="string">'/src/entry.js'</span>
+    ],
+    <span class="comment">/*
+         这里需要注意一下,
+         运行node server.js时不会生成文件到dist中,需要运行build进行构建才会生成
+         其次,配置的filename在你的项目中找不到的,
+         要想使用entry.js,在html中引用地址写成'/static/entry.js'是可以引用到的
+    */</span>
+    output: {
+        path:path.resolve(__dirname,<span class="string">'dist'</span>),
+        filename: <span class="string">"entry.js"</span>,
+        publicPath:<span class="string">"/static/"</span>
+    },
+    <span class="comment">/*
+        new webpack.optimize.OccurenceOrderPlugin(),
+        为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+        new webpack.HotModuleReplacementPlugin()
+        这个就是实现HMR的plugin
+        new webpack.NoErrorsPlugin()
+        发现错误不打断程序
+    */</span>
+    plugins: [
+        <span class="keyword">new</span> webpack.optimize.OccurenceOrderPlugin(),
+        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),
+        <span class="keyword">new</span> webpack.NoErrorsPlugin()
+    ],
+    module:{
+        loaders:[
+            <span class="comment">/*
+               babel加载器
+               exclude除去的意思
+               query的preset,进行es2015,react加载?
+               test: A condition that must be met
+               exclude: A condition that must not be met
+               include: An array of paths or files where the imported files will be transformed by the loader
+               loader: A string of “!” separated loaders
+               loaders: An array of loaders as string
+             */</span>
+            {
+                test:/\.js$/,
+                exclude:/(node_modules)/,
+                loader:<span class="string">'babel-loader'</span>,
+                <span class="keyword">include</span>: path.join(__dirname, <span class="string">'src'</span>),
+                query:{
+                    presets:[<span class="string">'es2015'</span>,<span class="string">'react'</span>]
+                }
+            }
+        ]
+    }
+}
+module.exports = config;
+</code></pre><hr>
+<p>OK,现在执行,可以看到页面出现在大家面前,修改自己的module文件发现页面刷新了,貌似这个跟咱们预想的不太一样耶</p>
+<p>一顿寻找中…</p>
+<p>发现了<code>react-transform</code></p>
+<p>在root下建立一个.babelrc</p>
+<h3 id="-babelrc">.babelrc</h3><p>首先安装</p>
+<pre><code><span class="comment">npm</span> <span class="comment">install</span> <span class="comment">react</span><span class="literal">-</span><span class="comment">transform</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span> <span class="comment">&amp;&amp;</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="comment">react</span><span class="literal">-</span><span class="comment">transform</span><span class="literal">-</span><span class="comment">hmr</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span>
+</code></pre><p>然后配置.babelrc </p>
+<pre><code>{
+  "<span class="attribute">presets</span>": <span class="value">[<span class="string">"react"</span>, <span class="string">"es2015"</span>]</span>,
+  "<span class="attribute">env</span>": <span class="value">{
+    "<span class="attribute">development</span>": <span class="value">{
+      "<span class="attribute">plugins</span>": <span class="value">[
+        [<span class="string">"react-transform"</span>, {
+          "<span class="attribute">transforms</span>": <span class="value">[{
+            "<span class="attribute">transform</span>": <span class="value"><span class="string">"react-transform-hmr"</span></span>,
+            "<span class="attribute">imports</span>": <span class="value">[<span class="string">"react"</span>]</span>,
+            "<span class="attribute">locals</span>": <span class="value">[<span class="string">"module"</span>]
+          </span>}]
+        </span>}]
+      ]
+    </span>}</span>,
+    "<span class="attribute">production</span>": <span class="value">{
+      "<span class="attribute">plugins</span>": <span class="value">[]
+    </span>}
+  </span>}
+</span>}
+</code></pre><p>Perfect !!!<br>@<a href="https://github.com/webpack/webpack-dev-middleware" target="_blank" rel="external">GitHub webpack-dev-middleware</a><br>@<a href="http://www.tuicool.com/articles/22aQ7vu" target="_blank" rel="external">手把手深入理解 webpack dev middleware 原理與相關 plugins</a><br>@<a href="https://github.com/gaearon/babel-plugin-react-transform" target="_blank" rel="external">babel-plugin-react-transform</a></p>
+</span>
       
     </div>
 
@@ -257,17 +393,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/09/Learning-Reactjs-Notebook-2/" rel="next" title="Learning Reactjs Notebook 2（数据流git ）">
-                <i class="fa fa-chevron-left"></i> Learning Reactjs Notebook 2（数据流git ）
+              <a href="/2016/05/11/解读基金笔记/" rel="next" title="解读基金笔记">
+                <i class="fa fa-chevron-left"></i> 解读基金笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/11/解读基金笔记/" rel="prev" title="解读基金笔记">
-                解读基金笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -317,8 +449,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/09/Learning-Reactjs-Notebook-3-事件处理/"
-           data-title="Learning Reactjs Notebook 3 (事件处理)" data-url="http://yoursite.com/2016/05/09/Learning-Reactjs-Notebook-3-事件处理/">
+      <div class="ds-thread" data-thread-key="2016/12/09/webpack Hot Module Replacement/"
+           data-title="webpack Hot Module Replacement" data-url="http://yoursite.com/2016/12/09/webpack Hot Module Replacement/">
       </div>
     
   </div>
@@ -362,7 +494,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -433,7 +565,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理"><span class="nav-number">1.</span> <span class="nav-text">事件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定事件处理器"><span class="nav-number">1.1.</span> <span class="nav-text">绑定事件处理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件和状态"><span class="nav-number">1.2.</span> <span class="nav-text">事件和状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据状态进行渲染"><span class="nav-number">1.3.</span> <span class="nav-text">根据状态进行渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新状态"><span class="nav-number">1.4.</span> <span class="nav-text">更新状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件对象"><span class="nav-number">1.5.</span> <span class="nav-text">事件对象</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack_with_React"><span class="nav-number">1.</span> <span class="nav-text">Webpack with React</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hot_Module_Replacement"><span class="nav-number">1.1.</span> <span class="nav-text">Hot Module Replacement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.1.</span> <span class="nav-text">实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#server-js"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">server.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-dev-config-js"><span class="nav-number">1.1.2.</span> <span class="nav-text">webpack.dev.config.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-babelrc"><span class="nav-number">1.1.3.</span> <span class="nav-text">.babelrc</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
