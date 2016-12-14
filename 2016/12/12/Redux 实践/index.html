@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端," />
 
 
 
@@ -53,28 +53,16 @@
 
 
 
-<meta name="description" content="Webpack with React
- 简单说webpack是一个module加载器,可以把项目内html,js,css以模块化的方式加载进项目内。 提供了很多的loader用于加载、解析不同的lib 或者 frame。 提供了许多plugin,实现诸如全局变量、模块热替换等功能。
- 总之是相当的全面,可以实现大部分前端工程化、模块化的功能
-Hot Module Replacement
-HMR意思">
+<meta name="description" content="ReduxRedux是由flux衍生而来的状态管理器,应用于大型的React应用,Redux会让React中的state变的可预测,网络有大量的Redux的教程,详细的介绍了redux的基础概念,应用场景以及高级应用。Redux有以下几个基础方面需要大家了解:1、store    在redux中只有一个单一的store,我所理解的store就是应用的数据结构。2、action    当用户做页面上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack Hot Module Replacement">
-<meta property="og:url" content="http://yoursite.com/2016/12/09/webpack Hot Module Replacement/index.html">
+<meta property="og:title" content="Redux 实践 todo">
+<meta property="og:url" content="http://yoursite.com/2016/12/12/Redux 实践/index.html">
 <meta property="og:site_name" content="ImpGuier">
-<meta property="og:description" content="Webpack with React
- 简单说webpack是一个module加载器,可以把项目内html,js,css以模块化的方式加载进项目内。 提供了很多的loader用于加载、解析不同的lib 或者 frame。 提供了许多plugin,实现诸如全局变量、模块热替换等功能。
- 总之是相当的全面,可以实现大部分前端工程化、模块化的功能
-Hot Module Replacement
-HMR意思">
-<meta property="og:updated_time" content="2016-12-09T09:58:09.000Z">
+<meta property="og:description" content="ReduxRedux是由flux衍生而来的状态管理器,应用于大型的React应用,Redux会让React中的state变的可预测,网络有大量的Redux的教程,详细的介绍了redux的基础概念,应用场景以及高级应用。Redux有以下几个基础方面需要大家了解:1、store    在redux中只有一个单一的store,我所理解的store就是应用的数据结构。2、action    当用户做页面上">
+<meta property="og:updated_time" content="2016-12-13T03:37:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack Hot Module Replacement">
-<meta name="twitter:description" content="Webpack with React
- 简单说webpack是一个module加载器,可以把项目内html,js,css以模块化的方式加载进项目内。 提供了很多的loader用于加载、解析不同的lib 或者 frame。 提供了许多plugin,实现诸如全局变量、模块热替换等功能。
- 总之是相当的全面,可以实现大部分前端工程化、模块化的功能
-Hot Module Replacement
-HMR意思">
+<meta name="twitter:title" content="Redux 实践 todo">
+<meta name="twitter:description" content="ReduxRedux是由flux衍生而来的状态管理器,应用于大型的React应用,Redux会让React中的state变的可预测,网络有大量的Redux的教程,详细的介绍了redux的基础概念,应用场景以及高级应用。Redux有以下几个基础方面需要大家了解:1、store    在redux中只有一个单一的store,我所理解的store就是应用的数据结构。2、action    当用户做页面上">
 
 
 
@@ -86,7 +74,7 @@ HMR意思">
   };
 </script>
 
-  <title> webpack Hot Module Replacement | ImpGuier </title>
+  <title> Redux 实践 todo | ImpGuier </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -194,8 +182,10 @@ HMR意思">
   
   
   
+    
+  
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal  post-sticky" itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -206,7 +196,7 @@ HMR意思">
             
             
               
-                webpack Hot Module Replacement
+                Redux 实践 todo
               
             
           </h1>
@@ -215,8 +205,8 @@ HMR意思">
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-12-09T17:58:09+08:00" content="2016-12-09">
-              2016-12-09
+            <time itemprop="dateCreated" datetime="2016-12-12T22:05:54+08:00" content="2016-12-12">
+              2016-12-12
             </time>
           </span>
 
@@ -226,8 +216,8 @@ HMR意思">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/09/webpack Hot Module Replacement/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/webpack Hot Module Replacement/" itemprop="commentsCount"></span>
+                <a href="/2016/12/12/Redux 实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/Redux 实践/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -246,155 +236,98 @@ HMR意思">
       
 
       
-        <span itemprop="articleBody"><h1 id="Webpack_with_React">Webpack with React</h1><hr>
-<p> 简单说webpack是一个module加载器,可以把项目内html,js,css以模块化的方式加载进项目内。<br> 提供了很多的loader用于加载、解析不同的lib 或者 frame。<br> 提供了许多plugin,实现诸如全局变量、模块热替换等功能。</p>
-<p> 总之是相当的全面,可以实现大部分前端工程化、模块化的功能</p>
-<h2 id="Hot_Module_Replacement">Hot Module Replacement</h2><hr>
-<p><code>HMR</code>意思是模块热替换(字面翻译哈哈),就是你在代码中修改代码,无需在浏览器中刷新,能够自己的更新浏览器中的代码,直接呈现在你的面前,解放你的双手,节省你的键盘。</p>
-<h3 id="实现方式">实现方式</h3><p> 首先你要自己build一个项目,配置好你webpack.config,然后写一个简单的module。<br> 你会在这之中看到Hot Module Replacement 的相关实现方式,大家也可以试试。<br> 这里主要讲的是另外的实现方式哈。   </p>
-<h4 id="server-js">server.js</h4><pre><code><span class="comment">/*
-    path NodeJs Api 用于操作目录对象
-    webpack
-    dev-server 其实搭建了一个小型的express项目
-    config 是你的webpack配置文件
-*/</span>
-<span class="keyword">var</span> path = <span class="keyword">require</span>(<span class="string">'path'</span>);
-<span class="keyword">var</span> webpack = <span class="keyword">require</span>(<span class="string">'webpack'</span>);
-<span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">'express'</span>);
-<span class="keyword">var</span> config = <span class="keyword">require</span>(<span class="string">"./webpack.dev.config"</span>);
-
-<span class="comment">/*
-    app 获取一个express的实例
-    compile 返回一个Compiler实例
-    webpack-dev-middleware            
-    webpack hot middleware
-    用来实现热替换的中间件
-    app.get('*'…… 配置路由        
-    最后启用端口监听        
-*/</span>
-<span class="keyword">var</span> app = express();
-<span class="keyword">var</span> compile = webpack(config);
-
-app.<span class="keyword">use</span>(<span class="keyword">require</span>(<span class="string">'webpack-dev-middleware'</span>)(compile,{
-    noInfo: <span class="keyword">true</span>,
-    publicPath: config.output.publicPath
-}));
-
-app.<span class="keyword">use</span>(<span class="keyword">require</span>(<span class="string">'webpack-hot-middleware'</span>)(compile,{
-    log: console.log, path: <span class="string">'/__webpack_hmr'</span>, heartbeat: <span class="number">10</span> * <span class="number">1000</span>
-}));
-
-app.get(<span class="string">'*'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
-    res.sendFile(path.join(__dirname,<span class="string">'index.html'</span>));
-});
-
-app.listen(<span class="number">8000</span>,<span class="string">'127.0.0.1'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{});
-</code></pre><hr>
-<h3 id="webpack-dev-config-js">webpack.dev.config.js</h3><pre><code><span class="keyword">var</span> webpack = <span class="keyword">require</span>(<span class="string">"webpack"</span>);
-<span class="keyword">var</span> path = <span class="keyword">require</span>(<span class="string">"path"</span>);
-<span class="keyword">var</span> config = {
-    devtool: <span class="string">'source-map'</span>,
-    <span class="comment">//  app 获取一个express的实例</span>
-    <span class="comment">//  compile 返回一个Compiler实例</span>
-    <span class="comment">//  webpack-dev-middleware            </span>
-    <span class="comment">//  webpack hot middleware</span>
-    <span class="comment">//  用来实现热替换的中间件</span>
-    <span class="comment">//  app.get('*'…… 配置路由        </span>
-    <span class="comment">//  最后启用端口监听        </span>
-    entry:[
-        <span class="string">'webpack-hot-middleware/client?path=/__webpack_hmr&amp;timeout=20000&amp;reload=true'</span>,
-        __dirname + <span class="string">'/src/entry.js'</span>
-    ],
-    <span class="comment">/*
-         这里需要注意一下,
-         运行node server.js时不会生成文件到dist中,需要运行build进行构建才会生成
-         其次,配置的filename在你的项目中找不到的,
-         要想使用entry.js,在html中引用地址写成'/static/entry.js'是可以引用到的
-    */</span>
-    output: {
-        path:path.resolve(__dirname,<span class="string">'dist'</span>),
-        filename: <span class="string">"entry.js"</span>,
-        publicPath:<span class="string">"/static/"</span>
-    },
-    <span class="comment">/*
-        new webpack.optimize.OccurenceOrderPlugin(),
-        为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
-        new webpack.HotModuleReplacementPlugin()
-        这个就是实现HMR的plugin
-        new webpack.NoErrorsPlugin()
-        发现错误不打断程序
-    */</span>
-    plugins: [
-        <span class="keyword">new</span> webpack.optimize.OccurenceOrderPlugin(),
-        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),
-        <span class="keyword">new</span> webpack.NoErrorsPlugin()
-    ],
-    module:{
-        loaders:[
-            <span class="comment">/*
-               babel加载器
-               exclude除去的意思
-               query的preset,进行es2015,react加载?
-               test: A condition that must be met
-               exclude: A condition that must not be met
-               include: An array of paths or files where the imported files will be transformed by the loader
-               loader: A string of “!” separated loaders
-               loaders: An array of loaders as string
-             */</span>
-            {
-                test:/\.js$/,
-                exclude:/(node_modules)/,
-                loader:<span class="string">'babel-loader'</span>,
-                <span class="keyword">include</span>: path.join(__dirname, <span class="string">'src'</span>),
-                query:{
-                    presets:[<span class="string">'es2015'</span>,<span class="string">'react'</span>]
-                }
-            }
-        ]
+        <span itemprop="articleBody"><h1 id="Redux">Redux</h1><p>Redux是由flux衍生而来的状态管理器,应用于大型的React应用,Redux会让React中的state变的可预测,网络有大量的Redux的教程,详细的介绍了redux的基础概念,<br>应用场景以及高级应用。<br>Redux有以下几个基础方面需要大家了解:<br>1、store<br>    在redux中只有一个单一的store,我所理解的store就是应用的数据结构。<br>2、action<br>    当用户做页面上做一些交互行为的时候,这时可以被描述为redux中的action。<br>3、reducer<br>    我理解的reducer是对action(s)的提炼,然后switch-case的处理,它是一个纯函数,返回对应action行为进一步处理后的state,当然可以有多个reducer啦。</p>
+<h2 id="Store">Store</h2><pre><code><span class="comment">//引入一个数据源</span>
+<span class="keyword">import</span> { createStore } <span class="keyword">from</span> <span class="string">'redux'</span>      
+<span class="keyword">import</span> rootReducer <span class="keyword">from</span> <span class="string">'./reducer/index'</span>        
+<span class="keyword">import</span> events <span class="keyword">from</span> <span class="string">'./data/event'</span>;        
+<span class="comment">//设置一个默认的数据结构</span>
+<span class="keyword">const</span> defaultState = {
+    events:events
+};
+<span class="comment">//创建一个Store实例(reducer,defaultState)</span>
+<span class="keyword">const</span> store = createStore(rootReducer,defaultState);    
+<span class="keyword">export</span> <span class="keyword">default</span> store;
+</code></pre><h2 id="Action">Action</h2><pre><code><span class="comment">//回车创建一个<span class="doctag"><span class="keyword">todo</span></span>  </span>
+<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createEvent</span> (<span class="params">title,eventid,complete</span>)</span>{
+    <span class="keyword">return</span> {
+        type:<span class="string">"CREATE_EVENT"</span>,
+        title,
+        eventid,
+        complete
     }
 }
-module.exports = config;
-</code></pre><hr>
-<p>OK,现在执行,可以看到页面出现在大家面前,修改自己的module文件发现页面刷新了,貌似这个跟咱们预想的不太一样耶</p>
-<p>一顿寻找中…</p>
-<p>发现了<code>react-transform</code></p>
-<p>在root下建立一个.babelrc</p>
-<h3 id="-babelrc">.babelrc</h3><p>首先安装</p>
-<pre><code><span class="comment">npm</span> <span class="comment">install</span> <span class="comment">react</span><span class="literal">-</span><span class="comment">transform</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span> <span class="comment">&amp;&amp;</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="comment">react</span><span class="literal">-</span><span class="comment">transform</span><span class="literal">-</span><span class="comment">hmr</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">save</span>
-</code></pre><p>然后配置.babelrc </p>
-<pre><code>{
-  "<span class="attribute">presets</span>": <span class="value">[<span class="string">"react"</span>, <span class="string">"es2015"</span>]</span>,
-  "<span class="attribute">env</span>": <span class="value">{
-    "<span class="attribute">development</span>": <span class="value">{
-      "<span class="attribute">plugins</span>": <span class="value">[
-        [<span class="string">"react-transform"</span>, {
-          "<span class="attribute">transforms</span>": <span class="value">[{
-            "<span class="attribute">transform</span>": <span class="value"><span class="string">"react-transform-hmr"</span></span>,
-            "<span class="attribute">imports</span>": <span class="value">[<span class="string">"react"</span>]</span>,
-            "<span class="attribute">locals</span>": <span class="value">[<span class="string">"module"</span>]
-          </span>}]
-        </span>}]
-      ]
-    </span>}</span>,
-    "<span class="attribute">production</span>": <span class="value">{
-      "<span class="attribute">plugins</span>": <span class="value">[]
-    </span>}
-  </span>}
-</span>}
-</code></pre><p>Perfect !!!<br>@<a href="https://github.com/webpack/webpack-dev-middleware" target="_blank" rel="external">GitHub webpack-dev-middleware</a><br>@<a href="http://www.tuicool.com/articles/22aQ7vu" target="_blank" rel="external">手把手深入理解 webpack dev middleware 原理與相關 plugins</a><br>@<a href="https://github.com/gaearon/babel-plugin-react-transform" target="_blank" rel="external">babel-plugin-react-transform</a></p>
+<span class="comment">//点击圆圈标识是否完成</span>
+<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toggleStatusComplete</span>(<span class="params">i</span>)</span>{
+    <span class="keyword">return</span> {
+        type:<span class="string">"TOGGLE_STATUS_COMPLETE"</span>,
+        i
+    }
+}
+<span class="comment">//删除一个<span class="doctag"><span class="keyword">todo</span></span></span>
+<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">removeEvent</span>(<span class="params">i</span>)</span>{
+    <span class="keyword">return</span> {
+        type:<span class="string">"REMOVE_EVENT"</span>,
+        i
+    }
+}
+</code></pre><h2 id="Reducer">Reducer</h2><h3 id="index-js">index.js</h3><pre><code> <span class="comment">//redux提供了一个combineReducers,可以把多个reducer合为一个rootReducer</span>
+<span class="literal">import</span> { combineReducers } from <span class="string">'redux'</span>
+<span class="literal">import</span> events from <span class="string">'./events'</span>
+<span class="keyword">const</span> rootReducer = combineReducers({events})
+<span class="literal">export</span> <span class="keyword">default</span> rootReducer
+</code></pre><h3 id="events-js">events.js</h3><pre><code>/*
+*events中存在许多的actionType
+*对应不同的action,进行不同的数据操作,返回不同的<span class="keyword">state</span>信息
+*/
+export <span class="keyword">default</span> function events(<span class="keyword">state</span>, action){
+    var i;
+    switch (action.type) {
+     case <span class="string">"CREATE_EVENT"</span>:
+         console.<span class="keyword">log</span>(<span class="string">"create Event at here"</span>);
+         return [
+             ...<span class="keyword">state</span>.slice(<span class="number">0</span>),
+             {title:action.title,eventid:action.eventid,complete:action.complete}
+         ];
+     case <span class="string">"TOGGLE_STATUS_COMPLETE"</span>:
+         console.<span class="keyword">log</span>(<span class="string">"TOGGLE_STATUS_COMPLETE at here"</span>);
+         i = action.i;
+         return [
+             ...<span class="keyword">state</span>.slice(<span class="number">0</span>,i),
+             {...<span class="keyword">state</span>[i],complete:!<span class="keyword">state</span>[i].complete },
+             ...<span class="keyword">state</span>.slice(i+<span class="number">1</span>)
+         ];
+     case <span class="string">"REMOVE_EVENT"</span>:
+         console.<span class="keyword">log</span>(<span class="string">"REMOVE_EVENT at here"</span>);
+         i = action.i;
+         return [
+             ...<span class="keyword">state</span>.slice(<span class="number">0</span>,i),
+             ...<span class="keyword">state</span>.slice(i+<span class="number">1</span>)
+         ];
+     <span class="keyword">default</span>:
+         return <span class="keyword">state</span>;
+    }
+}
+</code></pre><p>@<a href="https://github.com/impguier/react-toda]" target="_blank" rel="external">Github -&gt; Redux-todo</a><br>@<a href="http://cn.redux.js.org//docs/api/index.html" target="_blank" rel="external">Redux中文API</a><br>@<a href="https://learnredux.com/" target="_blank" rel="external">Learn Redux</a>        </p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag">#前端</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/11/解读基金笔记/" rel="next" title="解读基金笔记">
-                <i class="fa fa-chevron-left"></i> 解读基金笔记
+              <a href="/2016/12/10/webpack Hot Module Replacement/" rel="next" title="webpack Hot Module Replacement">
+                <i class="fa fa-chevron-left"></i> webpack Hot Module Replacement
               </a>
             
           </div>
@@ -449,8 +382,8 @@ module.exports = config;
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/09/webpack Hot Module Replacement/"
-           data-title="webpack Hot Module Replacement" data-url="http://yoursite.com/2016/12/09/webpack Hot Module Replacement/">
+      <div class="ds-thread" data-thread-key="2016/12/12/Redux 实践/"
+           data-title="Redux 实践 todo" data-url="http://yoursite.com/2016/12/12/Redux 实践/">
       </div>
     
   </div>
@@ -494,7 +427,7 @@ module.exports = config;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -565,7 +498,7 @@ module.exports = config;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack_with_React"><span class="nav-number">1.</span> <span class="nav-text">Webpack with React</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hot_Module_Replacement"><span class="nav-number">1.1.</span> <span class="nav-text">Hot Module Replacement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现方式"><span class="nav-number">1.1.1.</span> <span class="nav-text">实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#server-js"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">server.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-dev-config-js"><span class="nav-number">1.1.2.</span> <span class="nav-text">webpack.dev.config.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-babelrc"><span class="nav-number">1.1.3.</span> <span class="nav-text">.babelrc</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux"><span class="nav-number">1.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Store"><span class="nav-number">1.1.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Action"><span class="nav-number">1.2.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reducer"><span class="nav-number">1.3.</span> <span class="nav-text">Reducer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#index-js"><span class="nav-number">1.3.1.</span> <span class="nav-text">index.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#events-js"><span class="nav-number">1.3.2.</span> <span class="nav-text">events.js</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

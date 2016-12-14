@@ -211,8 +211,8 @@
                     <i class="fa fa-thumb-tack"></i>
                   </span>
                 
-                <a class="post-title-link" href="/2015/12/31/2016将做之事/" itemprop="url">
-                  2016 WiLl Be BeTtEr
+                <a class="post-title-link" href="/2016/12/12/Redux 实践/" itemprop="url">
+                  Redux 实践 todo
                 </a>
               
             
@@ -222,8 +222,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-12-31T15:15:05+08:00" content="2015-12-31">
-              2015-12-31
+            <time itemprop="dateCreated" datetime="2016-12-12T22:05:54+08:00" content="2016-12-12">
+              2016-12-12
             </time>
           </span>
 
@@ -233,8 +233,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/31/2016将做之事/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/31/2016将做之事/" itemprop="commentsCount"></span>
+                <a href="/2016/12/12/Redux 实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/Redux 实践/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -256,30 +256,80 @@
         
           <span itemprop="articleBody">
             
-              <h2 id="注释:!为最高优先级,@次级,#有空再说再做">注释:!为最高优先级,@次级,#有空再说再做</h2><h3 id="!_类">! 类</h3><pre><code>建立投资交易系统, 实践且年化<span class="number">25</span><span class="comment">%, 达标后转为固定低风险收益</span>
+              <h1 id="Redux">Redux</h1><p>Redux是由flux衍生而来的状态管理器,应用于大型的React应用,Redux会让React中的state变的可预测,网络有大量的Redux的教程,详细的介绍了redux的基础概念,<br>应用场景以及高级应用。<br>Redux有以下几个基础方面需要大家了解:<br>1、store<br>    在redux中只有一个单一的store,我所理解的store就是应用的数据结构。<br>2、action<br>    当用户做页面上做一些交互行为的时候,这时可以被描述为redux中的action。<br>3、reducer<br>    我理解的reducer是对action(s)的提炼,然后switch-case的处理,它是一个纯函数,返回对应action行为进一步处理后的state,当然可以有多个reducer啦。</p>
+<h2 id="Store">Store</h2><pre><code><span class="comment">//引入一个数据源</span>
+<span class="keyword">import</span> { createStore } <span class="keyword">from</span> <span class="string">'redux'</span>      
+<span class="keyword">import</span> rootReducer <span class="keyword">from</span> <span class="string">'./reducer/index'</span>        
+<span class="keyword">import</span> events <span class="keyword">from</span> <span class="string">'./data/event'</span>;        
+<span class="comment">//设置一个默认的数据结构</span>
+<span class="keyword">const</span> defaultState = {
+    events:events
+};
+<span class="comment">//创建一个Store实例(reducer,defaultState)</span>
+<span class="keyword">const</span> store = createStore(rootReducer,defaultState);    
+<span class="keyword">export</span> <span class="keyword">default</span> store;
+</code></pre><h2 id="Action">Action</h2><pre><code><span class="comment">//回车创建一个<span class="doctag"><span class="keyword">todo</span></span>  </span>
+<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createEvent</span> (<span class="params">title,eventid,complete</span>)</span>{
+    <span class="keyword">return</span> {
+        type:<span class="string">"CREATE_EVENT"</span>,
+        title,
+        eventid,
+        complete
+    }
+}
+<span class="comment">//点击圆圈标识是否完成</span>
+<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toggleStatusComplete</span>(<span class="params">i</span>)</span>{
+    <span class="keyword">return</span> {
+        type:<span class="string">"TOGGLE_STATUS_COMPLETE"</span>,
+        i
+    }
+}
+<span class="comment">//删除一个<span class="doctag"><span class="keyword">todo</span></span></span>
+<span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">removeEvent</span>(<span class="params">i</span>)</span>{
+    <span class="keyword">return</span> {
+        type:<span class="string">"REMOVE_EVENT"</span>,
+        i
+    }
+}
+</code></pre><h2 id="Reducer">Reducer</h2><h3 id="index-js">index.js</h3><pre><code> <span class="comment">//redux提供了一个combineReducers,可以把多个reducer合为一个rootReducer</span>
+<span class="literal">import</span> { combineReducers } from <span class="string">'redux'</span>
+<span class="literal">import</span> events from <span class="string">'./events'</span>
+<span class="keyword">const</span> rootReducer = combineReducers({events})
+<span class="literal">export</span> <span class="keyword">default</span> rootReducer
+</code></pre><h3 id="events-js">events.js</h3><pre><code>/*
+*events中存在许多的actionType
+*对应不同的action,进行不同的数据操作,返回不同的<span class="keyword">state</span>信息
+*/
+export <span class="keyword">default</span> function events(<span class="keyword">state</span>, action){
+    var i;
+    switch (action.type) {
+     case <span class="string">"CREATE_EVENT"</span>:
+         console.<span class="keyword">log</span>(<span class="string">"create Event at here"</span>);
+         return [
+             ...<span class="keyword">state</span>.slice(<span class="number">0</span>),
+             {title:action.title,eventid:action.eventid,complete:action.complete}
+         ];
+     case <span class="string">"TOGGLE_STATUS_COMPLETE"</span>:
+         console.<span class="keyword">log</span>(<span class="string">"TOGGLE_STATUS_COMPLETE at here"</span>);
+         i = action.i;
+         return [
+             ...<span class="keyword">state</span>.slice(<span class="number">0</span>,i),
+             {...<span class="keyword">state</span>[i],complete:!<span class="keyword">state</span>[i].complete },
+             ...<span class="keyword">state</span>.slice(i+<span class="number">1</span>)
+         ];
+     case <span class="string">"REMOVE_EVENT"</span>:
+         console.<span class="keyword">log</span>(<span class="string">"REMOVE_EVENT at here"</span>);
+         i = action.i;
+         return [
+             ...<span class="keyword">state</span>.slice(<span class="number">0</span>,i),
+             ...<span class="keyword">state</span>.slice(i+<span class="number">1</span>)
+         ];
+     <span class="keyword">default</span>:
+         return <span class="keyword">state</span>;
+    }
+}
+</code></pre><p>@<a href="https://github.com/impguier/react-toda]" target="_blank" rel="external">Github -&gt; Redux-todo</a><br>@<a href="http://cn.redux.js.org//docs/api/index.html" target="_blank" rel="external">Redux中文API</a><br>@<a href="https://learnredux.com/" target="_blank" rel="external">Learn Redux</a>        </p>
 
-学习范畴:
-   <span class="number">1</span>-投资
-   <span class="number">2</span>-工作
-   <span class="number">3</span>-管理和经营
-
-减肥,<span class="number">2015</span>的最后一天,我发现我穿的衣服都崩崩的了.
-
-健康作息时间,早睡早起,一天<span class="number">8</span>只烟儿,戒就算了,没戏.
-
-每天背点英文单词,循序渐进的学学英语.
-
-培养一个可以从中得到些许的爱好,音乐,厨艺等等.
-
-交更多的朋友,认识更多的人,用心听话.
-</code></pre><h3 id="@_类">@ 类</h3><pre><code>国内旅游一两次吧
-
-个人股票财报系统
-
-时间管理
-
-待录
-</code></pre><h4 id="越努力越幸福">越努力越幸福</h4><h4 id="野蛮其体魄,文明其精神">野蛮其体魄,文明其精神</h4><h2 id="2016,快乐且富有着,哦吼吼吼吼">2016,快乐且富有着,哦吼吼吼吼</h2>
             
           </span>
         
@@ -327,7 +377,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/09/webpack Hot Module Replacement/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/10/webpack Hot Module Replacement/" itemprop="url">
                   webpack Hot Module Replacement
                 </a>
               
@@ -338,8 +388,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-12-09T17:58:09+08:00" content="2016-12-09">
-              2016-12-09
+            <time itemprop="dateCreated" datetime="2016-12-10T21:05:54+08:00" content="2016-12-10">
+              2016-12-10
             </time>
           </span>
 
@@ -349,8 +399,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/12/09/webpack Hot Module Replacement/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/webpack Hot Module Replacement/" itemprop="commentsCount"></span>
+                <a href="/2016/12/10/webpack Hot Module Replacement/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/webpack Hot Module Replacement/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -509,102 +559,6 @@ module.exports = config;
 </span>}
 </code></pre><p>Perfect !!!<br>@<a href="https://github.com/webpack/webpack-dev-middleware" target="_blank" rel="external">GitHub webpack-dev-middleware</a><br>@<a href="http://www.tuicool.com/articles/22aQ7vu" target="_blank" rel="external">手把手深入理解 webpack dev middleware 原理與相關 plugins</a><br>@<a href="https://github.com/gaearon/babel-plugin-react-transform" target="_blank" rel="external">babel-plugin-react-transform</a></p>
 
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/11/解读基金笔记/" itemprop="url">
-                  解读基金笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            發表於
-            <time itemprop="dateCreated" datetime="2016-05-11T17:56:38+08:00" content="2016-05-11">
-              2016-05-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/11/解读基金笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/11/解读基金笔记/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h3 id="摘抄">摘抄</h3><pre><code>根据个人风险偏好情况,选择组合核心基金和非核心基金
-根据市场情况进行组合的再平衡（一年到一年半做一次再平衡）
-</code></pre><h3 id="怎样阅读基金招募书">怎样阅读基金招募书</h3><pre><code>关心第八章:基金的投资,前三节很重要
-了解基金的风险偏好情况
-</code></pre><h3 id="三个参考组合">三个参考组合</h3><pre><code>离退休<span class="number">20</span>年
-     广发聚丰     <span class="number">25</span><span class="comment">%</span>
-     广发小盘     <span class="number">25</span><span class="comment">%</span>
-     上投阿尔法   <span class="number">25</span><span class="comment">%</span>
-     上投优势     <span class="number">25</span><span class="comment">%</span>
-</code></pre>
             
           </span>
         
@@ -1241,7 +1195,7 @@ timezone:<span class="keyword">*</span><span class="keyword">*</span><span class
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
