@@ -53,40 +53,22 @@
 
 
 
-<meta name="description" content="浏览器工作流程1：解析HTML，重建DOM树
-2：解析CSS，构建渲染树
-3：从根节点递归调用，布局渲染树
-4：遍历渲染树，每个节点将使用UI后端层来绘制
-PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升方案1：避免使用通配规则
-2：尽量少的区对标签进行选择，而是用class
-3：不要去用标签先定ID或者类选择符
-4：尽量少的去使用后代选择器，降低选择的权重值
-5：考虑继承">
+<meta name="description" content="向前,向前进看到vue2更新许久,一直没时间弄这些,年底有时间终于有空一探究竟了。现在负责的公司的产品,正好想把技术栈更新一下,所以原型基于该产品,进行一下升级前的尝试和初步设计。
+Vuex我把store的mutations和actions都写了一起,但实际的项目还是尽量耦合度低一下,但后期你的项目状态多了以后,你的store的维护成本会越来越大。
+index.jsimport Vue from">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从浏览器渲染原理讲CSS性能">
-<meta property="og:url" content="http://yoursite.com/2015/12/08/从浏览器渲染原理讲CSS性能/index.html">
+<meta property="og:title" content="简单的列表展示（vue+vuex+vue-router+webpack）">
+<meta property="og:url" content="http://yoursite.com/2016/12/25/简单的列表展示（vue+vuex+vue-router+webpack）/index.html">
 <meta property="og:site_name" content="ImpGuier">
-<meta property="og:description" content="浏览器工作流程1：解析HTML，重建DOM树
-2：解析CSS，构建渲染树
-3：从根节点递归调用，布局渲染树
-4：遍历渲染树，每个节点将使用UI后端层来绘制
-PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升方案1：避免使用通配规则
-2：尽量少的区对标签进行选择，而是用class
-3：不要去用标签先定ID或者类选择符
-4：尽量少的去使用后代选择器，降低选择的权重值
-5：考虑继承">
-<meta property="og:updated_time" content="2015-12-31T07:14:18.000Z">
+<meta property="og:description" content="向前,向前进看到vue2更新许久,一直没时间弄这些,年底有时间终于有空一探究竟了。现在负责的公司的产品,正好想把技术栈更新一下,所以原型基于该产品,进行一下升级前的尝试和初步设计。
+Vuex我把store的mutations和actions都写了一起,但实际的项目还是尽量耦合度低一下,但后期你的项目状态多了以后,你的store的维护成本会越来越大。
+index.jsimport Vue from">
+<meta property="og:updated_time" content="2016-12-25T14:24:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从浏览器渲染原理讲CSS性能">
-<meta name="twitter:description" content="浏览器工作流程1：解析HTML，重建DOM树
-2：解析CSS，构建渲染树
-3：从根节点递归调用，布局渲染树
-4：遍历渲染树，每个节点将使用UI后端层来绘制
-PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升方案1：避免使用通配规则
-2：尽量少的区对标签进行选择，而是用class
-3：不要去用标签先定ID或者类选择符
-4：尽量少的去使用后代选择器，降低选择的权重值
-5：考虑继承">
+<meta name="twitter:title" content="简单的列表展示（vue+vuex+vue-router+webpack）">
+<meta name="twitter:description" content="向前,向前进看到vue2更新许久,一直没时间弄这些,年底有时间终于有空一探究竟了。现在负责的公司的产品,正好想把技术栈更新一下,所以原型基于该产品,进行一下升级前的尝试和初步设计。
+Vuex我把store的mutations和actions都写了一起,但实际的项目还是尽量耦合度低一下,但后期你的项目状态多了以后,你的store的维护成本会越来越大。
+index.jsimport Vue from">
 
 
 
@@ -98,7 +80,7 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
   };
 </script>
 
-  <title> 从浏览器渲染原理讲CSS性能 | ImpGuier </title>
+  <title> 简单的列表展示（vue+vuex+vue-router+webpack） | ImpGuier </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -206,8 +188,10 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
   
   
   
+    
+  
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal  post-sticky" itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -218,7 +202,7 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
             
             
               
-                从浏览器渲染原理讲CSS性能
+                简单的列表展示（vue+vuex+vue-router+webpack）
               
             
           </h1>
@@ -227,8 +211,8 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-12-08T11:29:23+08:00" content="2015-12-08">
-              2015-12-08
+            <time itemprop="dateCreated" datetime="2016-12-25T19:11:54+08:00" content="2016-12-25">
+              2016-12-25
             </time>
           </span>
 
@@ -238,8 +222,8 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/08/从浏览器渲染原理讲CSS性能/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/08/从浏览器渲染原理讲CSS性能/" itemprop="commentsCount"></span>
+                <a href="/2016/12/25/简单的列表展示（vue+vuex+vue-router+webpack）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/简单的列表展示（vue+vuex+vue-router+webpack）/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -258,15 +242,148 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
       
 
       
-        <span itemprop="articleBody"><h3 id="浏览器工作流程">浏览器工作流程</h3><pre><code>1：解析HTML，重建DOM树
-2：解析CSS，构建渲染树
-3：从根节点递归调用，布局渲染树
-4：遍历渲染树，每个节点将使用UI后端层来绘制
-</code></pre><h2 id="PS:_css引擎是按照每条规则从右到左的顺序去匹配"><strong>PS: css引擎是按照每条规则从右到左的顺序去匹配</strong></h2><h3 id="CSS性能提升方案">CSS性能提升方案</h3><pre><code><span class="number">1</span>：避免使用通配规则
-<span class="number">2</span>：尽量少的区对标签进行选择，而是用<span class="class"><span class="keyword">class</span></span>
-<span class="number">3</span>：不要去用标签先定ID或者类选择符
-<span class="number">4</span>：尽量少的去使用后代选择器，降低选择的权重值
-<span class="number">5</span>：考虑继承
+        <span itemprop="articleBody"><h1 id="向前,向前进">向前,向前进</h1><p>看到vue2更新许久,一直没时间弄这些,年底有时间终于有空一探究竟了。<br>现在负责的公司的产品,正好想把技术栈更新一下,所以原型基于该产品,进行一下升级前的尝试和初步设计。</p>
+<h1 id="Vuex">Vuex</h1><p>我把store的mutations和actions都写了一起,但实际的项目还是尽量耦合度低一下,但后期你的项目状态多了以后,你的<br>store的维护成本会越来越大。</p>
+<h2 id="index-js">index.js</h2><pre><code><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;
+<span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span>;
+<span class="keyword">import</span> Vuex,{ Store } <span class="keyword">from</span> <span class="string">'vuex'</span>;
+<span class="comment">//一定要在创建根组件之前use</span>
+Vue.use(Vuex);
+<span class="keyword">import</span> storeObj <span class="keyword">from</span> <span class="string">'./store.js'</span>
+const store = new Store(storeObj);
+<span class="comment">//创建根组件</span>
+<span class="keyword">new</span> Vue({
+    router,
+    store,
+    el:<span class="string">"#app"</span>,
+    template:<span class="string">'&lt;App /&gt;'</span>,
+    components: { App }
+});
+</code></pre><h2 id="store-js">store.js</h2><h3 id="state">state</h3><p>通过vuex存储的应用状态</p>
+<pre><code><span class="tag">state</span>: {
+        <span class="attribute">loading</span>:true,
+        <span class="attribute">canscroll</span>:true,
+        <span class="attribute">nodata</span>:false,
+        <span class="attribute">nodata_text </span>: <span class="string">"暂无更多数据"</span>,
+        <span class="attribute">listdata</span>:[]        
+}
+</code></pre><h3 id="mutations">mutations</h3><p>vuex的状态值只能通过mutation进行更新,而且mutations中必须是同步的       </p>
+<pre><code>mutations : {
+        loading (<span class="keyword">state</span>, newState) {
+            <span class="keyword">state</span>.loading = newState;
+        },
+        canscroll (<span class="keyword">state</span>, newState) {
+            <span class="keyword">state</span>.canscroll = newState;
+        },
+        nodata (<span class="keyword">state</span>, newState) {
+            <span class="keyword">state</span>.nodata = newState;
+        },
+        nodata_text (<span class="keyword">state</span>, newState) {
+            <span class="keyword">state</span>.nodata_text = newState;    
+        },
+        listdata (<span class="keyword">state</span>, newData) {
+            <span class="keyword">state</span>.listdata = <span class="keyword">state</span>.listdata.concat(newData);
+        },
+        timedown2process (<span class="keyword">state</span>,{ i,disabled,showtype,status }){
+            <span class="keyword">state</span>.listdata[i].disabled = disabled;
+            <span class="keyword">state</span>.listdata[i].showtype = showtype;
+            <span class="keyword">state</span>.listdata[i].status.value = status.value;
+        },
+        updateText(<span class="keyword">state</span>, { text, i }){
+            <span class="keyword">state</span>.listdata[i].status.value.text = text;
+        }
+}
+</code></pre><h3 id="actions">actions</h3><p>异步操作更新可以放到action中,通过commit进而更新state</p>
+<pre><code>actions <span class="keyword">: {</span>
+    loading (<span class="literal">context</span>,<span class="keyword">bool) {</span>
+        <span class="literal">context</span>.commit(<span class="string">'loading'</span>,bool);
+    <span class="keyword">}</span>,
+    canscroll (<span class="literal">context</span>,<span class="keyword">bool) {</span>
+        <span class="literal">context</span>.commit(<span class="string">'canscroll'</span>,bool);
+    <span class="keyword">}</span>,
+    nodata (<span class="literal">context</span>,<span class="keyword">bool) {</span>
+        <span class="literal">context</span>.commit(<span class="string">'nodata'</span>,bool);
+    <span class="keyword">}</span>,
+    nodata_text (<span class="literal">context</span>,<span class="keyword">text) {</span>
+        <span class="literal">context</span>.commit(<span class="string">'nodata_text'</span>,text);
+    <span class="keyword">}</span>,
+    listdata (<span class="literal">context</span>,<span class="keyword">{</span> page , compiler <span class="keyword">}</span><span class="keyword">) {</span>                
+        api.getListData(page).<span class="keyword">then(function(data){</span>                
+            let jsonData = $.parseJSON(data);
+            <span class="keyword">if</span>(jsonData.length &lt; <span class="number">10</span><span class="keyword">) {</span>           
+                <span class="literal">context</span>.commit(<span class="string">'canscroll'</span>,<span class="keyword">false</span>);
+                <span class="literal">context</span>.commit(<span class="string">'nodata'</span>,<span class="keyword">true</span>);
+                <span class="literal">context</span>.commit(<span class="string">'nodata_text'</span>,<span class="string">'暂无更多数据'</span>);
+            <span class="keyword">}</span>
+            <span class="literal">context</span>.commit(<span class="string">'loading'</span>,<span class="keyword">false</span>);
+            jsonData = jsonData.map(compiler);
+            <span class="literal">context</span>.commit(<span class="string">'listdata'</span>,jsonData);
+            <span class="literal">context</span>.commit(<span class="string">'canscroll'</span>,!<span class="literal">context</span>.state.nodata);
+        <span class="keyword">}</span>);
+    <span class="keyword">}</span>,
+    timedown2process <span class="keyword">({</span> commit <span class="keyword">}</span>,<span class="keyword">obj) {</span>
+        commit(<span class="string">'timedown2process'</span>,obj);
+    <span class="keyword">}</span>,
+    <span class="keyword">updateText({</span> commit <span class="keyword">}</span>,<span class="keyword">obj){</span>
+        commit(<span class="string">'updateText'</span>,obj);
+    <span class="keyword">}</span>
+<span class="keyword">}</span>
+</code></pre><h3 id="getters">getters</h3><p>一些get方法,获取应用的state信息</p>
+<pre><code>getters:{
+    getLoading (<span class="keyword">state</span>) {
+        return <span class="keyword">state</span>.loading;
+    },
+    canscroll (<span class="keyword">state</span>) {
+        return <span class="keyword">state</span>.canscroll;
+    },
+    nodata (<span class="keyword">state</span>) {
+        return <span class="keyword">state</span>.nodata;
+    },
+    nodata_text (<span class="keyword">state</span>) {
+        return <span class="keyword">state</span>.nodata_text;
+    },
+    listdata (<span class="keyword">state</span>){
+        return <span class="keyword">state</span>.listdata;
+    }
+}
+</code></pre><h1 id="Router">Router</h1><p>在router.js中配置好所有的路由信息,当然也可以通过细化模块的方式生成最终的router.js </p>
+<pre><code>module.exports = <span class="keyword">{</span>
+    <span class="literal">mode</span>:<span class="string">'history'</span>,
+    routes:[
+        <span class="keyword">{</span>
+            <span class="built_in">path</span>:<span class="string">'/'</span>,
+            component: <span class="constant">Index</span>
+        <span class="keyword">}</span>
+    ]
+<span class="keyword">}</span>;
+</code></pre><h1 id="index-vue">index.vue</h1><p>终于来到了首页组件,把首页拆分为一个个组件,尽量编写可复用的组件,这不就是模块化的方便之处么!</p>
+<pre><code><span class="tag">&lt;<span class="title">template</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">Slider</span>&gt;</span><span class="tag">&lt;/<span class="title">Slider</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">List</span>&gt;</span><span class="tag">&lt;/<span class="title">List</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">listLoading</span>&gt;</span><span class="tag">&lt;/<span class="title">listLoading</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">listStatus</span>&gt;</span><span class="tag">&lt;/<span class="title">listStatus</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">template</span>&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">scoped</span>&gt;</span><span class="css">
+    <span class="class">.content</span><span class="rules">{
+        <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">3rem</span></span></span>;
+    }</span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">import</span> Slider <span class="keyword">from</span> <span class="string">'./index/slider.vue'</span>;
+<span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">'./index/list.vue'</span>;
+<span class="keyword">import</span> listLoading <span class="keyword">from</span> <span class="string">'./index/list_loading.vue'</span>;
+<span class="keyword">import</span> listStatus <span class="keyword">from</span> <span class="string">'./index/list_status.vue'</span>;
+<span class="keyword">export</span> <span class="keyword">default</span> {
+    components:{
+        Slider,
+        List,
+        listLoading,
+        listStatus
+    }
+}
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>   
 </code></pre></span>
       
     </div>
@@ -284,16 +401,16 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/02/命令行发邮件/" rel="next" title="命令行发邮件">
-                <i class="fa fa-chevron-left"></i> 命令行发邮件
+              <a href="/2016/12/12/Redux 实践/" rel="next" title="Redux 实践 todo">
+                <i class="fa fa-chevron-left"></i> Redux 实践 todo
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/10/webpack Hot Module Replacement/" rel="prev" title="webpack Hot Module Replacement">
-                webpack Hot Module Replacement <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/25/产品的视角--读书笔记/" rel="prev" title="产品的视角--读书笔记">
+                产品的视角--读书笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -344,8 +461,8 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/08/从浏览器渲染原理讲CSS性能/"
-           data-title="从浏览器渲染原理讲CSS性能" data-url="http://yoursite.com/2015/12/08/从浏览器渲染原理讲CSS性能/">
+      <div class="ds-thread" data-thread-key="2016/12/25/简单的列表展示（vue+vuex+vue-router+webpack）/"
+           data-title="简单的列表展示（vue+vuex+vue-router+webpack）" data-url="http://yoursite.com/2016/12/25/简单的列表展示（vue+vuex+vue-router+webpack）/">
       </div>
     
   </div>
@@ -460,7 +577,7 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器工作流程"><span class="nav-number">1.</span> <span class="nav-text">浏览器工作流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PS:_css引擎是按照每条规则从右到左的顺序去匹配"><span class="nav-number"></span> <span class="nav-text">PS: css引擎是按照每条规则从右到左的顺序去匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS性能提升方案"><span class="nav-number">1.</span> <span class="nav-text">CSS性能提升方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#向前,向前进"><span class="nav-number">1.</span> <span class="nav-text">向前,向前进</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vuex"><span class="nav-number">2.</span> <span class="nav-text">Vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#index-js"><span class="nav-number">2.1.</span> <span class="nav-text">index.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#store-js"><span class="nav-number">2.2.</span> <span class="nav-text">store.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#state"><span class="nav-number">2.2.1.</span> <span class="nav-text">state</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mutations"><span class="nav-number">2.2.2.</span> <span class="nav-text">mutations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#actions"><span class="nav-number">2.2.3.</span> <span class="nav-text">actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getters"><span class="nav-number">2.2.4.</span> <span class="nav-text">getters</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Router"><span class="nav-number">3.</span> <span class="nav-text">Router</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index-vue"><span class="nav-number">4.</span> <span class="nav-text">index.vue</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

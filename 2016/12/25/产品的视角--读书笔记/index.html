@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="前端," />
+  <meta name="keywords" content="产品," />
 
 
 
@@ -53,40 +53,28 @@
 
 
 
-<meta name="description" content="浏览器工作流程1：解析HTML，重建DOM树
-2：解析CSS，构建渲染树
-3：从根节点递归调用，布局渲染树
-4：遍历渲染树，每个节点将使用UI后端层来绘制
-PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升方案1：避免使用通配规则
-2：尽量少的区对标签进行选择，而是用class
-3：不要去用标签先定ID或者类选择符
-4：尽量少的去使用后代选择器，降低选择的权重值
-5：考虑继承">
+<meta name="description" content="我眼中的产品了解公司业务,根据业务实际情况,总结提炼出产品的流程逻辑,据此画出响应的原型,提供给设计开发,进行产品实现。但是实际的产品应该是什么样的呢?
+书中我读到的产品印象了解需求,了解用户
+讨论在一个产品的需求、用户痛点和体验的时候,还原到场景里面,看看用户当时的需求,并且了解此时的动机,来看产品是否满足用户的需求。在用户行为分析,产品体验报告,用户研究上多做工作
+
+产品的使用者就是用户,所以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从浏览器渲染原理讲CSS性能">
-<meta property="og:url" content="http://yoursite.com/2015/12/08/从浏览器渲染原理讲CSS性能/index.html">
+<meta property="og:title" content="产品的视角--读书笔记">
+<meta property="og:url" content="http://yoursite.com/2016/12/25/产品的视角--读书笔记/index.html">
 <meta property="og:site_name" content="ImpGuier">
-<meta property="og:description" content="浏览器工作流程1：解析HTML，重建DOM树
-2：解析CSS，构建渲染树
-3：从根节点递归调用，布局渲染树
-4：遍历渲染树，每个节点将使用UI后端层来绘制
-PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升方案1：避免使用通配规则
-2：尽量少的区对标签进行选择，而是用class
-3：不要去用标签先定ID或者类选择符
-4：尽量少的去使用后代选择器，降低选择的权重值
-5：考虑继承">
-<meta property="og:updated_time" content="2015-12-31T07:14:18.000Z">
+<meta property="og:description" content="我眼中的产品了解公司业务,根据业务实际情况,总结提炼出产品的流程逻辑,据此画出响应的原型,提供给设计开发,进行产品实现。但是实际的产品应该是什么样的呢?
+书中我读到的产品印象了解需求,了解用户
+讨论在一个产品的需求、用户痛点和体验的时候,还原到场景里面,看看用户当时的需求,并且了解此时的动机,来看产品是否满足用户的需求。在用户行为分析,产品体验报告,用户研究上多做工作
+
+产品的使用者就是用户,所以">
+<meta property="og:updated_time" content="2016-12-25T14:13:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从浏览器渲染原理讲CSS性能">
-<meta name="twitter:description" content="浏览器工作流程1：解析HTML，重建DOM树
-2：解析CSS，构建渲染树
-3：从根节点递归调用，布局渲染树
-4：遍历渲染树，每个节点将使用UI后端层来绘制
-PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升方案1：避免使用通配规则
-2：尽量少的区对标签进行选择，而是用class
-3：不要去用标签先定ID或者类选择符
-4：尽量少的去使用后代选择器，降低选择的权重值
-5：考虑继承">
+<meta name="twitter:title" content="产品的视角--读书笔记">
+<meta name="twitter:description" content="我眼中的产品了解公司业务,根据业务实际情况,总结提炼出产品的流程逻辑,据此画出响应的原型,提供给设计开发,进行产品实现。但是实际的产品应该是什么样的呢?
+书中我读到的产品印象了解需求,了解用户
+讨论在一个产品的需求、用户痛点和体验的时候,还原到场景里面,看看用户当时的需求,并且了解此时的动机,来看产品是否满足用户的需求。在用户行为分析,产品体验报告,用户研究上多做工作
+
+产品的使用者就是用户,所以">
 
 
 
@@ -98,7 +86,7 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
   };
 </script>
 
-  <title> 从浏览器渲染原理讲CSS性能 | ImpGuier </title>
+  <title> 产品的视角--读书笔记 | ImpGuier </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -206,8 +194,10 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
   
   
   
+    
+  
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal  post-sticky" itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -218,7 +208,7 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
             
             
               
-                从浏览器渲染原理讲CSS性能
+                产品的视角--读书笔记
               
             
           </h1>
@@ -227,8 +217,8 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-12-08T11:29:23+08:00" content="2015-12-08">
-              2015-12-08
+            <time itemprop="dateCreated" datetime="2016-12-25T21:05:54+08:00" content="2016-12-25">
+              2016-12-25
             </time>
           </span>
 
@@ -238,8 +228,8 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/08/从浏览器渲染原理讲CSS性能/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/08/从浏览器渲染原理讲CSS性能/" itemprop="commentsCount"></span>
+                <a href="/2016/12/25/产品的视角--读书笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/产品的视角--读书笔记/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -258,16 +248,24 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
       
 
       
-        <span itemprop="articleBody"><h3 id="浏览器工作流程">浏览器工作流程</h3><pre><code>1：解析HTML，重建DOM树
-2：解析CSS，构建渲染树
-3：从根节点递归调用，布局渲染树
-4：遍历渲染树，每个节点将使用UI后端层来绘制
-</code></pre><h2 id="PS:_css引擎是按照每条规则从右到左的顺序去匹配"><strong>PS: css引擎是按照每条规则从右到左的顺序去匹配</strong></h2><h3 id="CSS性能提升方案">CSS性能提升方案</h3><pre><code><span class="number">1</span>：避免使用通配规则
-<span class="number">2</span>：尽量少的区对标签进行选择，而是用<span class="class"><span class="keyword">class</span></span>
-<span class="number">3</span>：不要去用标签先定ID或者类选择符
-<span class="number">4</span>：尽量少的去使用后代选择器，降低选择的权重值
-<span class="number">5</span>：考虑继承
-</code></pre></span>
+        <span itemprop="articleBody"><h1 id="我眼中的产品">我眼中的产品</h1><p>了解公司业务,根据业务实际情况,总结提炼出产品的流程逻辑,据此画出响应的原型,提供给设计开发,进行产品实现。<br>但是实际的产品应该是什么样的呢?</p>
+<h1 id="书中我读到的产品印象">书中我读到的产品印象</h1><h2 id="了解需求,了解用户">了解需求,了解用户</h2><blockquote>
+<p>讨论在一个产品的需求、用户痛点和体验的时候,还原到场景里面,看看用户当时的需求,并且了解此时的动机,来看产品<br>是否满足用户的需求。在用户行为分析,产品体验报告,用户研究上多做工作</p>
+</blockquote>
+<p>产品的使用者就是用户,所以产品设计的出发点就是用户,需要调研和分析了用户行为以后,做出初代产品,邀请一些用户来使用<br>吐槽（例如公司同事）,然后迭代完善。</p>
+<h2 id="懂技术和产品思维">懂技术和产品思维</h2><p>产品经理懂技术,在出现线上问题以后,可以快速找到对应的开发,是找前端,PHP或者JAVA,可以降低沟通的成本,提高效率,而且<br>懂一些技术,可以功能实现的方式哈,不容易被忽悠哈。</p>
+<p>产品思维在结构上分为:<br>    1、规划分解<br>    2、调研设计<br>    3、项目管理<br>    4、方案评估</p>
+<h1 id="小白产品">小白产品</h1><p>前期的产品经理首要的要多使用一些市面上成熟的产品,微信、QQ、淘宝这些我们常用是不够的,要多多使用,多多下载,多多分<br>析,体会此款产品的流程,在细节上的把控和产品迭代周期等等。</p>
+<p>X &gt; 好用的产品 &gt; 好看的产品,so X = ‘好看又好用的产品’;</p>
+<h2 id="黑盒子模型">黑盒子模型</h2><p>黑盒子是T行结构,通过这个盒子,用户从哭脸到笑脸,同时从底下掉出钱来。</p>
+<blockquote>
+<p>互联网产品的第一价值的是微笑价值,然后才能带来商业价值。</p>
+</blockquote>
+<p>服务用户爽到掏银子</p>
+<h2 id="观察和认识产品">观察和认识产品</h2><p>第一看外观,<br>第二看结构;</p>
+<p>首先是黑箱分析,看产品有没有达到预期成果,有没有带来微笑价值<br>白箱是去分析产品的流程、交互、原型和版本的迭代.</p>
+<p>(未完待续)</p>
+</span>
       
     </div>
 
@@ -275,7 +273,7 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
       
         <div class="post-tags">
           
-            <a href="/tags/前端/" rel="tag">#前端</a>
+            <a href="/tags/产品/" rel="tag">#产品</a>
           
         </div>
       
@@ -284,17 +282,13 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/02/命令行发邮件/" rel="next" title="命令行发邮件">
-                <i class="fa fa-chevron-left"></i> 命令行发邮件
+              <a href="/2016/12/25/简单的列表展示（vue+vuex+vue-router+webpack）/" rel="next" title="简单的列表展示（vue+vuex+vue-router+webpack）">
+                <i class="fa fa-chevron-left"></i> 简单的列表展示（vue+vuex+vue-router+webpack）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/10/webpack Hot Module Replacement/" rel="prev" title="webpack Hot Module Replacement">
-                webpack Hot Module Replacement <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -344,8 +338,8 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/08/从浏览器渲染原理讲CSS性能/"
-           data-title="从浏览器渲染原理讲CSS性能" data-url="http://yoursite.com/2015/12/08/从浏览器渲染原理讲CSS性能/">
+      <div class="ds-thread" data-thread-key="2016/12/25/产品的视角--读书笔记/"
+           data-title="产品的视角--读书笔记" data-url="http://yoursite.com/2016/12/25/产品的视角--读书笔记/">
       </div>
     
   </div>
@@ -460,7 +454,7 @@ PS: css引擎是按照每条规则从右到左的顺序去匹配CSS性能提升�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器工作流程"><span class="nav-number">1.</span> <span class="nav-text">浏览器工作流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PS:_css引擎是按照每条规则从右到左的顺序去匹配"><span class="nav-number"></span> <span class="nav-text">PS: css引擎是按照每条规则从右到左的顺序去匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS性能提升方案"><span class="nav-number">1.</span> <span class="nav-text">CSS性能提升方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我眼中的产品"><span class="nav-number">1.</span> <span class="nav-text">我眼中的产品</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#书中我读到的产品印象"><span class="nav-number">2.</span> <span class="nav-text">书中我读到的产品印象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解需求,了解用户"><span class="nav-number">2.1.</span> <span class="nav-text">了解需求,了解用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懂技术和产品思维"><span class="nav-number">2.2.</span> <span class="nav-text">懂技术和产品思维</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小白产品"><span class="nav-number">3.</span> <span class="nav-text">小白产品</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#黑盒子模型"><span class="nav-number">3.1.</span> <span class="nav-text">黑盒子模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察和认识产品"><span class="nav-number">3.2.</span> <span class="nav-text">观察和认识产品</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
