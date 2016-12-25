@@ -211,6 +211,241 @@
                     <i class="fa fa-thumb-tack"></i>
                   </span>
                 
+                <a class="post-title-link" href="/2016/12/25/轻应用改版SPA化（vue+vuex+vue-router+webpack）/" itemprop="url">
+                  简单的列表展示（vue+vuex+vue-router+webpack）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-12-25T19:11:54+08:00" content="2016-12-25">
+              2016-12-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/25/轻应用改版SPA化（vue+vuex+vue-router+webpack）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/轻应用改版SPA化（vue+vuex+vue-router+webpack）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h1 id="向前,向前进">向前,向前进</h1><p>看到vue2更新许久,一直没时间弄这些,年底有时间终于有空一探究竟了。<br>现在负责的公司的产品,正好想把技术栈更新一下,所以原型基于该产品,进行一下升级前的尝试和初步设计。</p>
+<h1 id="Vuex">Vuex</h1><p>我把store的mutations和actions都写了一起,但实际的项目还是尽量耦合度低一下,但后期你的项目状态多了以后,你的<br>store的维护成本会越来越大。</p>
+<h2 id="index-js">index.js</h2><pre><code><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;
+<span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span>;
+<span class="keyword">import</span> Vuex,{ Store } <span class="keyword">from</span> <span class="string">'vuex'</span>;
+<span class="comment">//一定要在创建根组件之前use</span>
+Vue.use(Vuex);
+<span class="keyword">import</span> storeObj <span class="keyword">from</span> <span class="string">'./store.js'</span>
+const store = new Store(storeObj);
+<span class="comment">//创建根组件</span>
+<span class="keyword">new</span> Vue({
+    router,
+    store,
+    el:<span class="string">"#app"</span>,
+    template:<span class="string">'&lt;App /&gt;'</span>,
+    components: { App }
+});
+</code></pre><h2 id="store-js">store.js</h2><h3 id="state">state</h3><p>通过vuex存储的应用状态</p>
+<pre><code><span class="tag">state</span>: {
+        <span class="attribute">loading</span>:true,
+        <span class="attribute">canscroll</span>:true,
+        <span class="attribute">nodata</span>:false,
+        <span class="attribute">nodata_text </span>: <span class="string">"暂无更多数据"</span>,
+        <span class="attribute">listdata</span>:[]        
+}
+</code></pre><h3 id="mutations">mutations</h3><p>vuex的状态值只能通过mutation进行更新,而且mutations中必须是同步的       </p>
+<pre><code>mutations : {
+        loading (<span class="keyword">state</span>, newState) {
+            <span class="keyword">state</span>.loading = newState;
+        },
+        canscroll (<span class="keyword">state</span>, newState) {
+            <span class="keyword">state</span>.canscroll = newState;
+        },
+        nodata (<span class="keyword">state</span>, newState) {
+            <span class="keyword">state</span>.nodata = newState;
+        },
+        nodata_text (<span class="keyword">state</span>, newState) {
+            <span class="keyword">state</span>.nodata_text = newState;    
+        },
+        listdata (<span class="keyword">state</span>, newData) {
+            <span class="keyword">state</span>.listdata = <span class="keyword">state</span>.listdata.concat(newData);
+        },
+        timedown2process (<span class="keyword">state</span>,{ i,disabled,showtype,status }){
+            <span class="keyword">state</span>.listdata[i].disabled = disabled;
+            <span class="keyword">state</span>.listdata[i].showtype = showtype;
+            <span class="keyword">state</span>.listdata[i].status.value = status.value;
+        },
+        updateText(<span class="keyword">state</span>, { text, i }){
+            <span class="keyword">state</span>.listdata[i].status.value.text = text;
+        }
+}
+</code></pre><h3 id="actions">actions</h3><p>异步操作更新可以放到action中,通过commit进而更新state</p>
+<pre><code>actions <span class="keyword">: {</span>
+    loading (<span class="literal">context</span>,<span class="keyword">bool) {</span>
+        <span class="literal">context</span>.commit(<span class="string">'loading'</span>,bool);
+    <span class="keyword">}</span>,
+    canscroll (<span class="literal">context</span>,<span class="keyword">bool) {</span>
+        <span class="literal">context</span>.commit(<span class="string">'canscroll'</span>,bool);
+    <span class="keyword">}</span>,
+    nodata (<span class="literal">context</span>,<span class="keyword">bool) {</span>
+        <span class="literal">context</span>.commit(<span class="string">'nodata'</span>,bool);
+    <span class="keyword">}</span>,
+    nodata_text (<span class="literal">context</span>,<span class="keyword">text) {</span>
+        <span class="literal">context</span>.commit(<span class="string">'nodata_text'</span>,text);
+    <span class="keyword">}</span>,
+    listdata (<span class="literal">context</span>,<span class="keyword">{</span> page , compiler <span class="keyword">}</span><span class="keyword">) {</span>                
+        api.getListData(page).<span class="keyword">then(function(data){</span>                
+            let jsonData = $.parseJSON(data);
+            <span class="keyword">if</span>(jsonData.length &lt; <span class="number">10</span><span class="keyword">) {</span>           
+                <span class="literal">context</span>.commit(<span class="string">'canscroll'</span>,<span class="keyword">false</span>);
+                <span class="literal">context</span>.commit(<span class="string">'nodata'</span>,<span class="keyword">true</span>);
+                <span class="literal">context</span>.commit(<span class="string">'nodata_text'</span>,<span class="string">'暂无更多数据'</span>);
+            <span class="keyword">}</span>
+            <span class="literal">context</span>.commit(<span class="string">'loading'</span>,<span class="keyword">false</span>);
+            jsonData = jsonData.map(compiler);
+            <span class="literal">context</span>.commit(<span class="string">'listdata'</span>,jsonData);
+            <span class="literal">context</span>.commit(<span class="string">'canscroll'</span>,!<span class="literal">context</span>.state.nodata);
+        <span class="keyword">}</span>);
+    <span class="keyword">}</span>,
+    timedown2process <span class="keyword">({</span> commit <span class="keyword">}</span>,<span class="keyword">obj) {</span>
+        commit(<span class="string">'timedown2process'</span>,obj);
+    <span class="keyword">}</span>,
+    <span class="keyword">updateText({</span> commit <span class="keyword">}</span>,<span class="keyword">obj){</span>
+        commit(<span class="string">'updateText'</span>,obj);
+    <span class="keyword">}</span>
+<span class="keyword">}</span>
+</code></pre><h3 id="getters">getters</h3><p>一些get方法,获取应用的state信息</p>
+<pre><code>getters:{
+    getLoading (<span class="keyword">state</span>) {
+        return <span class="keyword">state</span>.loading;
+    },
+    canscroll (<span class="keyword">state</span>) {
+        return <span class="keyword">state</span>.canscroll;
+    },
+    nodata (<span class="keyword">state</span>) {
+        return <span class="keyword">state</span>.nodata;
+    },
+    nodata_text (<span class="keyword">state</span>) {
+        return <span class="keyword">state</span>.nodata_text;
+    },
+    listdata (<span class="keyword">state</span>){
+        return <span class="keyword">state</span>.listdata;
+    }
+}
+</code></pre><h1 id="Router">Router</h1><p>在router.js中配置好所有的路由信息,当然也可以通过细化模块的方式生成最终的router.js </p>
+<pre><code>module.exports = <span class="keyword">{</span>
+    <span class="literal">mode</span>:<span class="string">'history'</span>,
+    routes:[
+        <span class="keyword">{</span>
+            <span class="built_in">path</span>:<span class="string">'/'</span>,
+            component: <span class="constant">Index</span>
+        <span class="keyword">}</span>
+    ]
+<span class="keyword">}</span>;
+</code></pre><h1 id="index-vue">index.vue</h1><p>终于来到了首页组件,把首页拆分为一个个组件,尽量编写可复用的组件,这不就是模块化的方便之处么!</p>
+<pre><code><span class="tag">&lt;<span class="title">template</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"content"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">Slider</span>&gt;</span><span class="tag">&lt;/<span class="title">Slider</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">List</span>&gt;</span><span class="tag">&lt;/<span class="title">List</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">listLoading</span>&gt;</span><span class="tag">&lt;/<span class="title">listLoading</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">listStatus</span>&gt;</span><span class="tag">&lt;/<span class="title">listStatus</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">template</span>&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">scoped</span>&gt;</span><span class="css">
+    <span class="class">.content</span><span class="rules">{
+        <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">3rem</span></span></span>;
+    }</span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">import</span> Slider <span class="keyword">from</span> <span class="string">'./index/slider.vue'</span>;
+<span class="keyword">import</span> List <span class="keyword">from</span> <span class="string">'./index/list.vue'</span>;
+<span class="keyword">import</span> listLoading <span class="keyword">from</span> <span class="string">'./index/list_loading.vue'</span>;
+<span class="keyword">import</span> listStatus <span class="keyword">from</span> <span class="string">'./index/list_status.vue'</span>;
+<span class="keyword">export</span> <span class="keyword">default</span> {
+    components:{
+        Slider,
+        List,
+        listLoading,
+        listStatus
+    }
+}
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>   
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+        
+          
+
+  
+  
+
+  
+  
+  
+    
+  
+
+  <article class="post post-type-normal  post-sticky" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                  <span class="post-sticky-flag" title="置頂">
+                    <i class="fa fa-thumb-tack"></i>
+                  </span>
+                
                 <a class="post-title-link" href="/2016/12/12/Redux 实践/" itemprop="url">
                   Redux 实践 todo
                 </a>
@@ -329,6 +564,116 @@ export <span class="keyword">default</span> function events(<span class="keyword
     }
 }
 </code></pre><p>@<a href="https://github.com/impguier/react-toda]" target="_blank" rel="external">Github -&gt; Redux-todo</a><br>@<a href="http://cn.redux.js.org//docs/api/index.html" target="_blank" rel="external">Redux中文API</a><br>@<a href="https://learnredux.com/" target="_blank" rel="external">Learn Redux</a>        </p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+        
+          
+
+  
+  
+
+  
+  
+  
+    
+  
+
+  <article class="post post-type-normal  post-sticky" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                  <span class="post-sticky-flag" title="置頂">
+                    <i class="fa fa-thumb-tack"></i>
+                  </span>
+                
+                <a class="post-title-link" href="/2016/12/25/product/" itemprop="url">
+                  产品的视角--读书笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-12-25T21:05:54+08:00" content="2016-12-25">
+              2016-12-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/25/product/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/product/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h1 id="我眼中的产品">我眼中的产品</h1><p>了解公司业务,根据业务实际情况,总结提炼出产品的流程逻辑,据此画出响应的原型,提供给设计开发,进行产品实现。<br>但是实际的产品应该是什么样的呢?</p>
+<h1 id="书中我读到的产品印象">书中我读到的产品印象</h1><h2 id="了解需求,了解用户">了解需求,了解用户</h2><blockquote>
+<p>讨论在一个产品的需求、用户痛点和体验的时候,还原到场景里面,看看用户当时的需求,并且了解此时的动机,来看产品<br>是否满足用户的需求。在用户行为分析,产品体验报告,用户研究上多做工作</p>
+</blockquote>
+<p>产品的使用者就是用户,所以产品设计的出发点就是用户,需要调研和分析了用户行为以后,做出初代产品,邀请一些用户来使用<br>吐槽（例如公司同事）,然后迭代完善。</p>
+<h2 id="懂技术和产品思维">懂技术和产品思维</h2><p>产品经理懂技术,在出现线上问题以后,可以快速找到对应的开发,是找前端,PHP或者JAVA,可以降低沟通的成本,提高效率,而且<br>懂一些技术,可以功能实现的方式哈,不容易被忽悠哈。</p>
+<p>产品思维在结构上分为:<br>    1、规划分解<br>    2、调研设计<br>    3、项目管理<br>    4、方案评估</p>
+<h1 id="小白产品">小白产品</h1><p>前期的产品经理首要的要多使用一些市面上成熟的产品,微信、QQ、淘宝这些我们常用是不够的,要多多使用,多多下载,多多分<br>析,体会此款产品的流程,在细节上的把控和产品迭代周期等等。</p>
+<p>X &gt; 好用的产品 &gt; 好看的产品,so X = ‘好看又好用的产品’;</p>
+<h2 id="黑盒子模型">黑盒子模型</h2><p>黑盒子是T行结构,通过这个盒子,用户从哭脸到笑脸,同时从底下掉出钱来。</p>
+<blockquote>
+<p>互联网产品的第一价值的是微笑价值,然后才能带来商业价值。</p>
+</blockquote>
+<p>服务用户爽到掏银子</p>
+<h2 id="观察和认识产品">观察和认识产品</h2><p>第一看外观,<br>第二看结构;</p>
+<p>首先是黑箱分析,看产品有没有达到预期成果,有没有带来微笑价值<br>白箱是去分析产品的流程、交互、原型和版本的迭代.</p>
+<p>(未完待续)</p>
 
             
           </span>
@@ -1195,7 +1540,7 @@ timezone:<span class="keyword">*</span><span class="keyword">*</span><span class
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1209,7 +1554,7 @@ timezone:<span class="keyword">*</span><span class="keyword">*</span><span class
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">標籤</span>
               
           </div>
